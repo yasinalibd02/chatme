@@ -5,10 +5,12 @@ class HomeTopContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 300,
-      width: 200,
-      color:Colors.black26,
-    );
+      double screenWidth = MediaQuery.of(context).size.width;
+
+    // Calculate the responsive text size based on screen width
+    double textSize = screenWidth * 0.04;
+    return Text("yasin arafat is a software engineer , he is 23 year old"
+    ,
+    style: TextStyle(fontSize: textSize),);
   }
-}
+} 
