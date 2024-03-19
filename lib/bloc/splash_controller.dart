@@ -1,4 +1,11 @@
 
+import 'dart:async';
+
+import 'package:get/get.dart';
+
+import '../backend/local_storage.dart';
+import '../constants/routes.dart';
+
 class SplashController extends GetxController {
   @override
   void onReady() {
@@ -10,19 +17,12 @@ class SplashController extends GetxController {
     Timer(
       const Duration(seconds: 5),
       () {
-   
-
-        /// check open app from deep link or not?
-        /// get true/false value
-        /// then sign in >> call marketplace get data
-        /// show in dialog
-        /// then remove local data
         Get.offAllNamed(
           LocalStorage.isLoggedIn()
-              ? Routes.signInScreen
+              ? Routes.splashScreen
               : LocalStorage.isOnBoardDone()
-                  ? Routes.signInScreen
-                  : Routes.onboardScreen,
+                  ? Routes.welcomeScreen
+                  : Routes.onBoardingScreen,
         );
       },
     );

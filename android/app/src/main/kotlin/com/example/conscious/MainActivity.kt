@@ -1,4 +1,4 @@
-package com.example.conscious
+package com.example.chatme
 
 import io.flutter.embedding.android.FlutterActivity
 

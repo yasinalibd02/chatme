@@ -1,12 +1,16 @@
-import '/routes/routes.dart';
-import '/utils/theme.dart';
+// import 'package:get/get.dart';
+
+// import 'package:get_storage/get_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'backend/utils/network_check/dependency_injection.dart';
-import 'language/english.dart';
+
+import 'constants/app_strings.dart';
+import 'constants/routes.dart';
+import 'constants/themes.dart';
+
  
 void main() async {
   // Locking Device Orientation
@@ -34,14 +38,14 @@ class MyApp extends StatelessWidget {
       useInheritedMediaQuery: true,
       designSize: const Size(414, 896),
       builder: (_, child) => GetMaterialApp(
-        title: Strings.appName,
+        title: AppString.appName,
         debugShowCheckedModeBanner: false,
         theme: Themes.light,
         darkTheme: Themes.dark,
         themeMode: Themes().theme, 
         navigatorKey: Get.key,
         initialRoute: Routes.getSplashRoute(),
-        getPages: Routes.list,
+        // getPages: Routes.list,
         builder: (context, widget) {
           ScreenUtil.init(context);
           return MediaQuery(
