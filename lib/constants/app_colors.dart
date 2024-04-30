@@ -45,7 +45,7 @@ class AppColor {
     900: Color(0xff192D6B),
   };
 
-  static const Color webHeaderColor = Color(0xFFFF5C00);
+  static const Color primaryColor = Color(0xFFFF5C00);
   static const Color redColor = Color(0xFFFF5C00);
   static const Color searchBgColor = Color(0xFFE0E0E0);
   static const Color webFooterColor = Color(0xFFF5EFFF);
