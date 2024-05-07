@@ -1,13 +1,9 @@
-
-import 'package:chatme/constants/app_assets.dart';
-import 'package:chatme/constants/app_colors.dart';
-import 'package:chatme/constants/app_strings.dart';
-import 'package:chatme/widget/custom_button.dart';
-import 'package:flutter/cupertino.dart';
+import '/constants/app_assets.dart';
+import '/constants/app_colors.dart';
+import '/constants/app_strings.dart';
+import '/widget/custom_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-
 import '../../constants/app_sized.dart';
 import '../../constants/routes.dart';
 
@@ -47,20 +43,35 @@ class WelcomeScreen extends StatelessWidget {
           SizedBox(
            height:  Dimensions.heightSize),
 
-           const Text( AppString.appName ),
+           const Text("CHAT ME",
+           style: TextStyle(
+              fontSize: 32,
+              color: AppColor.primaryColor,
+            ),
+            ),
           SizedBox(height:  Dimensions.heightSize),
-          const Text(
-               "Welcome to Our World of Shopping Delights"),
+          const Text( 
+              AppString.welcomeSubTitle
+               ,style: TextStyle(
+                fontSize: 20,
+                 color: AppColor.primaryColorOpacity,
+                
+               ),
+               ),
           const Spacer(),
           const Divider(),
           CommonButton(
-            title: "Get Started",
+width:MediaQuery.sizeOf(context).width*0.6,
+            title: AppString.getStarted,
             onPressed: () {
               Get.toNamed(Routes.signInScreen);
             },
-            borderColor: AppColor.backgroundColor,
-            buttonColor: AppColor.searchBgColor,
+            borderColor: AppColor.primaryColor,
+            buttonColor: AppColor.primaryColor,
           ),
+          SizedBox(
+            height: Dimensions.heightSize*3,
+          )
           
         ],
       ),

@@ -1,10 +1,15 @@
-
 import 'package:chatme/constants/app_assets.dart';
 import 'package:chatme/constants/app_colors.dart';
+import 'package:chatme/constants/app_strings.dart';
+import 'package:chatme/constants/style.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 
 import '../../constants/app_sized.dart';
+import '../../constants/routes.dart';
 import '../../getx/auth/sign_in_controller.dart';
 import '../../widget/custom_button.dart';
 import '../../widget/input_filed.dart';
@@ -26,29 +31,104 @@ class SignInScreen extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(Dimensions.paddingSize * 0.7),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-        Image.asset(AppAssets.logo),
-         CommonInputField(
-            controller: TextEditingController(),
-            hintText: "Enter your text here",
-            labelText: "Label Text",
-            borderColor: AppColor.borderColor,
-            maxLines: 1,
-          ),
+          _logoWidget(context),
+          _titleSubtitleWidget(context),
+          _commonInputField(context),
+          _buttonWidget(context),
+          _doNotHaveAnAccount(context)
+        ],
+      ),
+    );
+  }
 
-          CommonButton(
-            title: "Log In",
-            onPressed: () {
+  _logoWidget(BuildContext context) {
+    return Image.asset(
+      AppAssets.logo,
+      color: AppColor.primaryColor,
+      height: MediaQuery.sizeOf(context).height * 0.2,
+    );
+  }
 
-            },
-            borderColor: AppColor.backgroundColor,
-            buttonColor: AppColor.backgroundColor,
-          ),
+  _titleSubtitleWidget(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        spaceVer(Dimensions.heightSize),
+        Text(
+          textAlign: TextAlign.center,
+          AppString.signInWelcome,
+          style: CustomStyle.largestTextStyle,
+        ),
+        Text(AppString.welcomeSubTitle, style: CustomStyle.smallestTextStyle),
+      ],
+    );
+  }
 
-          SizedBox( 
-            height: 
-            Dimensions.heightSize),
+  _commonInputField(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        spaceVer(Dimensions.heightSize * 3),
+        CommonInputField(
+          controller: TextEditingController(),
+          hintText: AppString.enterEmailAddress,
+          labelText: AppString.emailAddress,
+          borderColor: AppColor.borderColor,
+          maxLines: 1,
+        ),
+        spaceVer(Dimensions.heightSize),
+        CommonInputField(
+          controller: TextEditingController(),
+          hintText: AppString.enterPassword,
+          labelText: AppString.password,
+          borderColor: AppColor.borderColor,
+          maxLines: 1,
+        ),
+        Text(
+          AppString.forgotPasswordQ,
+          style:
+              CustomStyle.smallTextStyle.copyWith(color: AppColor.primaryColor),
+        ),
+        spaceVer(Dimensions.heightSize),
+      ],
+    );
+  }
+
+  _buttonWidget(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(
+        vertical: Dimensions.marginSizeVertical * 2,
+      ),
+      child: CommonButton(
+        title: AppString.signUp,
+        onPressed: () {
+          Get.toNamed(Routes.signInScreen);
+        },
+        borderColor: AppColor.primaryColor,
+        buttonColor: AppColor.primaryColor,
+      ),
+    );
+  }
+
+  _doNotHaveAnAccount(BuildContext context) {
+    return RichText(
+      text: TextSpan(
+        text: AppString.doNotHaveAnAccount,
+        style: CustomStyle.smallTextStyle ,
+        children: [
+          TextSpan(
+            text: AppString.signUp,
+            style: CustomStyle.smallTextStyle.copyWith(
+              color: AppColor.primaryColor,
+            ),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                Get.toNamed(Routes.signUpScreen);
+              },
+          )
         ],
       ),
     );

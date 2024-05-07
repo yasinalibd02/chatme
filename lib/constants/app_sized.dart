@@ -1,4 +1,17 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter/material.dart';
+
+Widget spaceVer(double height) {
+  return SizedBox(
+    height: height,
+  );
+}
+
+Widget spaceHor(double width) {
+  return SizedBox(
+    width: width,
+  );
+}
 
 class Dimensions {
   //screen size
@@ -34,6 +47,6 @@ class Dimensions {
   static double radius = 10.00.r;
 
   // default height and width size
-  static double heightSize = 12.00.h;
+  static  double heightSize = 12.00.h;
   static double widthSize = 10.00.w;
 }

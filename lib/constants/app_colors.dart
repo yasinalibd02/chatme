@@ -46,7 +46,9 @@ class AppColor {
   };
 
   static const Color primaryColor = Color(0xFFFF5C00);
-  static const Color redColor = Color(0xFFFF5C00);
+  static const Color primaryColorOpacity = Color.fromRGBO(236, 103, 26, 1);
+  static const Color primaryTextColor = Color(0xFF000000);
+  static const Color secondaryTextColor = Color(0xFF666666);
   static const Color searchBgColor = Color(0xFFE0E0E0);
   static const Color webFooterColor = Color(0xFFF5EFFF);
 }

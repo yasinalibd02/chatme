@@ -1,6 +1,4 @@
-// import 'package:get/get.dart';
 
-// import 'package:get_storage/get_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -41,7 +39,7 @@ class MyApp extends StatelessWidget {
         darkTheme: Themes.dark,
         themeMode: Themes().theme, 
         navigatorKey: Get.key,
-        initialRoute: Routes.splashScreen,
+        initialRoute: Routes.signInScreen,
            getPages: Routes.list,
         builder: (context, widget) {
           ScreenUtil.init(context);
