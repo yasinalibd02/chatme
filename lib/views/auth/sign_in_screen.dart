@@ -4,10 +4,7 @@ import 'package:chatme/constants/app_strings.dart';
 import 'package:chatme/constants/style.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
-
 import '../../constants/app_sized.dart';
 import '../../constants/routes.dart';
 import '../../getx/auth/sign_in_controller.dart';
@@ -103,9 +100,9 @@ class SignInScreen extends StatelessWidget {
         vertical: Dimensions.marginSizeVertical * 2,
       ),
       child: CommonButton(
-        title: AppString.signUp,
+        title: AppString.signIn,
         onPressed: () {
-          Get.toNamed(Routes.signInScreen);
+          Get.toNamed(Routes.navigationScreen);
         },
         borderColor: AppColor.primaryColor,
         buttonColor: AppColor.primaryColor,

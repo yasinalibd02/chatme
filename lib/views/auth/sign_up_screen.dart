@@ -5,10 +5,8 @@ import 'package:chatme/constants/style.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../constants/app_sized.dart';
 import '../../constants/routes.dart';
-import '../../getx/auth/sign_in_controller.dart';
 import '../../getx/auth/sign_up_controller.dart';
 import '../../widget/custom_button.dart';
 import '../../widget/input_filed.dart';
@@ -116,7 +114,7 @@ class SignUpScreen extends StatelessWidget {
         vertical: Dimensions.marginSizeVertical * 1.5,
       ),
       child: CommonButton(
-        title: AppString.signIn,
+        title: AppString.signUp,
         onPressed: () {
           Get.toNamed(Routes.signInScreen);
         },

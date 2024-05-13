@@ -20,6 +20,8 @@ class Dimensions {
 
   // padding and margin
   static double paddingSize = 24.00.r;
+  static double paddingSizeVertical = 24.00.h;
+  static double paddingSizeHorizontal = 24.00.w;
   static double marginBetweenInputTitleAndBox = 8.h;
   static double marginBetweenInputBox = 16.h;
   static double marginSizeHorizontal = 24.00.w;

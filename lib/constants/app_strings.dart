@@ -25,11 +25,51 @@ class AppString {
   static const String alreadyHaveAn = 'Already have an account? ';
   static const String signUpSubtitle =
       "Join us today to enjoy exclusive deals and faster checkout.";
-        static const String firstName = "First Name";
-        static const String enterFirstName = "Enter First Name";
-        static const String lastName = "Last Name";
-        static const String enterLastName = "Enter Last Name";
+  static const String firstName = "First Name";
+  static const String enterFirstName = "Enter First Name";
+  static const String lastName = "Last Name";
+  static const String enterLastName = "Enter Last Name";
 
-  //>>>>>>> forgot password 
-        
+  //>>>>>>> forgot password
+
+  //>>>>>dashboard
+  static const String foodAndGroceries = "Food and Groceries";
+  static const String medicine = "Medicine";
+  static const String healthAndBeauty = "Health and Beauty: ";
+  static const String homeAppliances = "Home Appliances";
+  static const String electronics = "Electronics";
+  static const String toysAndGames = "Toys and Games";
+  static const String officeSupplies = "Office Supplies";
+  static const String sportsAndFitness = "Sports and Fitness:";
+  static const String pets = "Pets";
+  static const String booksAndMedia = "Books and Media";
+
+  //drawer
+  static const String changePassword = "Change Password";
+  static const String changeLanguage = "Change Language";
+  static const String aboutUs = "About Us";
+  static const String privacyPolicy    = "Privacy Policy";
+  static const String home    = "Home";
+  static const String categories    = "Categories";
+  static const String profile    = "Profile";
+  static const String notification    = "Notification";
+
+  static const String signOut = "Sign Out";
+  static const String filters = "Filters";
+  static const String reset = "Reset";
+  static const String searchHere = "Search Here";
+  static const String product  = "Product";
+  static const String categorie  = "Categorie";
+  static const String popular  = "Popular";
+  static const String mobileNumber = "Mobile Number";
+  static const String enterMobileNumber = "Enter Mobile Number";
+  static const String address = "Address";
+  static const String enterAddress = "Enter Address";
+  static const String country = "Country";
+  static const String enterCountry = "Enter Country";
+  static const String update = "Update";
+  // static const String pets = "Pets";
+  // static const String pets = "Pets";
+  // static const String pets = "Pets";
+
 }

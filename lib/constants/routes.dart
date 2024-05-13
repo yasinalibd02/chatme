@@ -5,12 +5,14 @@ import '../views/auth/sign_in_screen.dart';
 import '../views/auth/sign_up_screen.dart';
 import '../views/begins/splash_screen.dart';
 import '../views/begins/welcome_screen.dart';
+import '../views/dashboard/navigation_screen.dart';
 
 class Routes {
   static const String splashScreen = '/splash';
   static const String welcomeScreen = '/welcome';
   static const String signInScreen = '/signinScreen';
   static const String signUpScreen = '/signUpScreen';
+  static const String navigationScreen = '/navigationScreen';
 
   static var list = [
     GetPage(
@@ -30,6 +32,10 @@ class Routes {
     GetPage(
       name: Routes.signUpScreen,
       page: () => SignUpScreen(),
+    ),
+     GetPage(
+      name: Routes.navigationScreen,
+      page: () => NavigationScreen(),
     ),
   ];
 }

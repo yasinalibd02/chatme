@@ -51,4 +51,7 @@ class AppColor {
   static const Color secondaryTextColor = Color(0xFF666666);
   static const Color searchBgColor = Color(0xFFE0E0E0);
   static const Color webFooterColor = Color(0xFFF5EFFF);
+  //>>>>>.white color and black color
+  static const Color whiteColor = Color(0xFFF5EFFF);
+  static const Color blackColor = Color(0xFF000000);
 }
