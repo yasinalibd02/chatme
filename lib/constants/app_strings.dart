@@ -68,8 +68,13 @@ class AppString {
   static const String country = "Country";
   static const String enterCountry = "Enter Country";
   static const String update = "Update";
-  // static const String pets = "Pets";
-  // static const String pets = "Pets";
-  // static const String pets = "Pets";
+  static const String oldPassword = "Old Password";
+  static const String enterOldPassword= "Enter Old Password";
+  static const String newPassword= "New Password";
+  static const String enterNewPassword= "Enter New Password";
+  static const String confirmPassword= "Confirm Password";
+  static const String enterConfirmPassword= "Enter Confirm Password";
+  static const String updatePassword= "Update Password";
+  static const String updateLanguage= "Update Language";
 
 }

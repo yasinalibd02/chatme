@@ -25,7 +25,7 @@ class AppColor {
   static const Color colorGray = Color(0xff6E6E6E);
   static const Color colorOxfordBlue = Color(0xff282F39);
   static const Color colorNigherRider = Color(0xff303030);
-  static const Color backgroundColor = Color(0xffF4F7FC);
+  static const Color backgroundColor = Color(0xffffffff);
   static const Color colorGreyBunker = Color(0xff25282B);
   static const Color colorGreyChateau = Color(0xffA0A4A8);
   static const Color borderColor = Color(0xFFDCDCDC);
@@ -52,6 +52,6 @@ class AppColor {
   static const Color searchBgColor = Color(0xFFE0E0E0);
   static const Color webFooterColor = Color(0xFFF5EFFF);
   //>>>>>.white color and black color
-  static const Color whiteColor = Color(0xFFF5EFFF);
+  static const Color whiteColor = Color(0xFFFFFFFF);
   static const Color blackColor = Color(0xFF000000);
 }

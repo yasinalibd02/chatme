@@ -6,6 +6,8 @@ import '../views/auth/sign_up_screen.dart';
 import '../views/begins/splash_screen.dart';
 import '../views/begins/welcome_screen.dart';
 import '../views/dashboard/navigation_screen.dart';
+import '../views/drawer/change_language_screen.dart';
+import '../views/drawer/change_password_screen.dart';
 
 class Routes {
   static const String splashScreen = '/splash';
@@ -13,6 +15,8 @@ class Routes {
   static const String signInScreen = '/signinScreen';
   static const String signUpScreen = '/signUpScreen';
   static const String navigationScreen = '/navigationScreen';
+  static const String changeLanguageScreen = '/changeLanguageScreen';
+  static const String changePasswordScreen = '/changePasswordScreen';
 
   static var list = [
     GetPage(
@@ -36,6 +40,14 @@ class Routes {
      GetPage(
       name: Routes.navigationScreen,
       page: () => NavigationScreen(),
+    ),
+    GetPage(
+      name: Routes.changeLanguageScreen,
+      page: () => ChangeLanguageScreen(),
+    ),
+     GetPage(
+      name: Routes.changePasswordScreen,
+      page: () => ChangePasswordScreen(),
     ),
   ];
 }
