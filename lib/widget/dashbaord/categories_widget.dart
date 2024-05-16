@@ -18,7 +18,7 @@ class CategoryWidget extends StatelessWidget {
         Image.asset(
           imageUrl,
           width: double.infinity,
-          height: 210, // Adjust the height of the image as needed
+          height: 10, // Adjust the height of the image as needed
           fit: BoxFit.cover,
         ),
         SizedBox(height: 8), // Add some spacing between the image and the title

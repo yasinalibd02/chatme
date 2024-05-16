@@ -17,6 +17,7 @@ class AppString {
       "Sign in to your account to continue shopping.";
   static const String signInWelcome = "Welcome to Chatme";
   static const String forgotPasswordQ = "Forgot Password?";
+  static const String forgotPassword = "Forgot Password";
   static const String doNotHaveAnAccount = "Do not have an account? ";
   static const String signUp = "Sign Up";
 
@@ -31,6 +32,15 @@ class AppString {
   static const String enterLastName = "Enter Last Name";
 
   //>>>>>>> forgot password
+  static const String pleaseProvideTheEmailAddress = "Please provide the email address you used to create the account";
+  static const String submit = "Submit";
+  static const String pleaseEnterTheOpt = "Please enter the OTP that was sent to your email";
+    static const String enterTheOtp = "Enter The OTP";
+   static const String otpScreen = "OTP Screen";
+   static const String resetPassword = "Reset Password";
+   static const String resetYourPassword = "Please reset your password";
+   static const String ok = "Ok";
+   static const String reset = "Reset";
 
   //>>>>>dashboard
   static const String foodAndGroceries = "Food and Groceries";
@@ -56,7 +66,6 @@ class AppString {
 
   static const String signOut = "Sign Out";
   static const String filters = "Filters";
-  static const String reset = "Reset";
   static const String searchHere = "Search Here";
   static const String product  = "Product";
   static const String categorie  = "Categorie";

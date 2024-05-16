@@ -1,6 +1,8 @@
 import 'package:chatme/constants/app_colors.dart';
+import 'package:chatme/constants/app_sized.dart';
 import 'package:chatme/constants/style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -12,19 +14,33 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: AppColor.backgroundColor,
-      leading: IconButton(
-        icon: const Icon(
-          Icons.arrow_back,
-          color: AppColor.primaryColor,
+      leading: Padding(
+        padding:EdgeInsets.only(
+          left: Dimensions.paddingSizeHorizontal,
+       
         ),
-        onPressed: () {
-          Get.back();
-        },
+        child: CircleAvatar(
+        backgroundColor: 
+            AppColor.primaryColor,
+        
+          child: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              color: AppColor.whiteColor,
+              size: 18.r,
+            ),
+            onPressed: () {
+              Get.back();
+            },
+          ),
+        ),
       ),
       centerTitle: true,
       title: Text(
         title,
-        style: CustomStyle.mediumTextStyle,
+        style: CustomStyle.largeTextStyle.copyWith(
+          fontWeight: FontWeight.w500
+        ),
       ),
     );
   }

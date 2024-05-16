@@ -2,10 +2,7 @@ import 'package:chatme/constants/app_assets.dart';
 import 'package:chatme/constants/app_colors.dart';
 import 'package:chatme/constants/app_sized.dart';
 import 'package:chatme/constants/style.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-
 import '../../constants/app_strings.dart';
 import '../../widget/dashbaord/categories_widget.dart';
 import '../../widget/dashbaord/popular_widget.dart';
@@ -68,7 +65,7 @@ class HomeScreen extends StatelessWidget {
                 Axis.horizontal, // Set scroll direction to horizontal
             itemCount: 5,
             itemBuilder: (context, index) {
-              return const CategoryWidget(
+              return  const CategoryWidget(
                 imageUrl: AppAssets.food,
                 title: "Food",
               );
@@ -134,7 +131,7 @@ class HomeScreen extends StatelessWidget {
             shrinkWrap: true,
             itemCount: 10,
             itemBuilder: (context, index) {
-              return ProductListTile(
+              return const ProductListTile(
                 imageUrl: 'https://example.com/product.jpg',
                 title: 'Product Name',
                 price: 29.99,

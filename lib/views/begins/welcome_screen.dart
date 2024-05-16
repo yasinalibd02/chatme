@@ -1,3 +1,6 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/widgets.dart';
+
 import '/constants/app_assets.dart';
 import '/constants/app_colors.dart';
 import '/constants/app_strings.dart';
@@ -28,7 +31,7 @@ class WelcomeScreen extends StatelessWidget {
         children: [
           const Spacer(),
           Container(
-            height: MediaQuery.sizeOf(context).height * 0.22,
+            height: MediaQuery.sizeOf(context).height * 0.25,
             width: MediaQuery.sizeOf(context).width,
             decoration: BoxDecoration(
                 image: const DecorationImage(
@@ -41,7 +44,7 @@ class WelcomeScreen extends StatelessWidget {
                 ),
                      ),
           SizedBox(
-           height:  Dimensions.heightSize),
+           height:  Dimensions.heightSize*4),
 
            const Text("CHAT ME",
            style: TextStyle(
@@ -50,16 +53,18 @@ class WelcomeScreen extends StatelessWidget {
             ),
             ),
           SizedBox(height:  Dimensions.heightSize),
-          const Text( 
-              AppString.welcomeSubTitle
-               ,style: TextStyle(
-                fontSize: 20,
-                 color: AppColor.primaryColorOpacity,
-                
-               ),
-               ),
+          const FittedBox(
+            child: Text( 
+                AppString.welcomeSubTitle
+                 ,style: TextStyle(
+                  fontSize: 20,
+                   color: AppColor.primaryColorOpacity,
+                  
+                 ),
+                 ),
+          ),
           const Spacer(),
-          const Divider(),
+        
           CommonButton(
 width:MediaQuery.sizeOf(context).width*0.6,
             title: AppString.getStarted,

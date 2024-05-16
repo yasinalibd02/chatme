@@ -84,10 +84,19 @@ class SignInScreen extends StatelessWidget {
           borderColor: AppColor.borderColor,
           maxLines: 1,
         ),
-        Text(
-          AppString.forgotPasswordQ,
-          style:
-              CustomStyle.smallTextStyle.copyWith(color: AppColor.primaryColor),
+        spaceVer(Dimensions.heightSize * 0.5),
+        InkWell(
+          onTap: () {
+            Get.toNamed(Routes.forgotPasswordScreen);
+          },
+          child: SizedBox(
+            height: Dimensions.heightSize * 1.5,
+            child: Text(
+              AppString.forgotPasswordQ,
+              style: CustomStyle.smallTextStyle
+                  .copyWith(color: AppColor.primaryColor),
+            ),
+          ),
         ),
         spaceVer(Dimensions.heightSize),
       ],
@@ -114,7 +123,7 @@ class SignInScreen extends StatelessWidget {
     return RichText(
       text: TextSpan(
         text: AppString.doNotHaveAnAccount,
-        style: CustomStyle.smallTextStyle ,
+        style: CustomStyle.smallTextStyle,
         children: [
           TextSpan(
             text: AppString.signUp,

@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
         darkTheme: Themes.dark,
         themeMode: Themes().theme, 
         navigatorKey: Get.key,
-        initialRoute: Routes.signInScreen,
+        initialRoute: Routes.navigationScreen,
            getPages: Routes.list,
         builder: (context, widget) {
           ScreenUtil.init(context);

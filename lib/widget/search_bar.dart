@@ -36,9 +36,9 @@ class _SearchInputFieldState extends State<SearchInputField> {
         color: AppColor.blackColor,),
         hintText: widget.hintText,
           contentPadding:
-            EdgeInsets.symmetric(vertical: 10, horizontal: 15), // Ad
+            const EdgeInsets.symmetric(vertical: 10, horizontal: 15), // Ad
       
-        hintStyle: TextStyle(
+        hintStyle: const TextStyle(
           color:Colors.black,
         ),
         border: OutlineInputBorder(
@@ -46,7 +46,7 @@ class _SearchInputFieldState extends State<SearchInputField> {
           borderRadius: BorderRadius.circular(Dimensions.radius*1.3),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
               color: Colors.black),
           borderRadius: BorderRadius.circular(Dimensions.radius * 1.3),
 

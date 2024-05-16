@@ -116,7 +116,7 @@ class SignUpScreen extends StatelessWidget {
       child: CommonButton(
         title: AppString.signUp,
         onPressed: () {
-          Get.toNamed(Routes.signInScreen);
+          Get.toNamed(Routes.registrationOtpScreen);
         },
         borderColor: AppColor.primaryColor,
         buttonColor: AppColor.primaryColor,
