@@ -1,12 +1,18 @@
-import 'package:chatme/constants/app_assets.dart';
-import 'package:chatme/constants/app_colors.dart';
-import 'package:chatme/constants/app_sized.dart';
-import 'package:chatme/constants/style.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../constants/app_strings.dart';
-import '../../widget/dashbaord/categories_widget.dart';
-import '../../widget/dashbaord/popular_widget.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:chatme/constants/app_colors.dart';
+import 'package:chatme/constants/style.dart';
+import 'package:chatme/backend/data/categories_data.dart'; // Assuming this contains the products data
+import 'package:chatme/constants/app_sized.dart'; // Assuming this contains Dimensions
+import 'package:chatme/constants/app_strings.dart';
+import 'package:chatme/widget/others/counter_widget.dart';
+import '../../backend/data/icons.dart';
 import '../../widget/search_bar.dart';
+import 'categories/product_details_screen.dart';
+import 'categories/products_screen.dart'; // Adjust the import path accordingly
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -19,12 +25,12 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  _bodyWidget(BuildContext context) {
+  Widget _bodyWidget(BuildContext context) {
     return ListView(
       children: [
         _searchBarWidget(context),
         _categoriesWidget(context),
-        _productsWidget(context),
+        _productWidget(context),
         _popularWidget(context),
       ],
     );
@@ -46,101 +52,237 @@ class HomeScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ///>>> title text
+        // Title text
         Padding(
           padding: EdgeInsets.symmetric(
               horizontal: Dimensions.paddingSizeHorizontal),
           child: Text(
             AppString.categorie,
-            style: CustomStyle.mediumTextStyle,
+            style: CustomStyle.mediumTextStyle
+                .copyWith(fontSize: Dimensions.headingTextSize3 + 2),
           ),
         ),
-
-        //! gridview
+        // Constrained ListView.builder
         SizedBox(
-          height: 240,
+          height: 100.h, // Set this to the desired height for the ListView
           child: ListView.builder(
-            shrinkWrap: true,
-            scrollDirection:
-                Axis.horizontal, // Set scroll direction to horizontal
-            itemCount: 5,
+            scrollDirection: Axis.horizontal,
+            padding: EdgeInsets.symmetric(
+                horizontal: Dimensions.paddingSize * 0.8,
+                vertical: Dimensions.paddingSizeVertical * 0.28),
+            itemCount: products
+                .map((product) => product.category)
+                .toSet()
+                .toList()
+                .length,
             itemBuilder: (context, index) {
-              return  const CategoryWidget(
-                imageUrl: AppAssets.food,
-                title: "Food",
+              String category = products
+                  .map((product) => product.category)
+                  .toSet()
+                  .toList()[index];
+              String iconUrl = getCategoryIconUrl(category);
+              return GestureDetector(
+                onTap: () {
+                  Get.to(ProductsScreen(
+                    category: category,
+                    products: products
+                        .where((product) => product.category == category)
+                        .toList(),
+                  ));
+                },
+                child: Container(
+                  margin: EdgeInsets.only(
+                      right: Dimensions.marginSizeHorizontal * 0.2),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: Dimensions.paddingSizeHorizontal * 0.5,
+                    vertical: Dimensions.paddingSizeVertical * 0.25,
+                  ),
+                  decoration: BoxDecoration(
+                      color: AppColor.primaryColor.withOpacity(0.25),
+                      borderRadius: BorderRadius.circular(Dimensions.radius)),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        iconUrl,
+                        height: 35.h,
+                        width: 70.w,
+                      ),
+                      SizedBox(height: Dimensions.heightSize * 0.9),
+                      Text(category,
+                          style: CustomStyle.mediumTextStyle
+                              .copyWith(fontWeight: FontWeight.w500)),
+                    ],
+                  ),
+                ),
               );
             },
           ),
-        )
+        ),
       ],
     );
   }
 
-  _productsWidget(BuildContext context) {
+  Widget _productWidget(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ///>>> title text
+        spaceVer(Dimensions.heightSize * 1.8),
         Padding(
           padding: EdgeInsets.symmetric(
               horizontal: Dimensions.paddingSizeHorizontal),
           child: Text(
-            AppString.product,
-            style: CustomStyle.mediumTextStyle,
+            AppString.products,
+            style: CustomStyle.mediumTextStyle
+                .copyWith(fontSize: Dimensions.headingTextSize3 + 2),
           ),
         ),
         SizedBox(
-          height: 240,
+          height: 170.h, // Set a fixed height for the horizontal ListView
           child: ListView.builder(
-            shrinkWrap: true,
-            scrollDirection:
-                Axis.horizontal, // Set scroll direction to horizontal
-            itemCount: 5,
+            scrollDirection: Axis.horizontal,
+            padding: EdgeInsets.symmetric(
+                horizontal: Dimensions.paddingSize * 0.2,
+                vertical: Dimensions.paddingSize * 0.4),
+            itemCount: products.length,
             itemBuilder: (context, index) {
-              return const CategoryWidget(
-                imageUrl: AppAssets.food,
-                title: "Food",
+              return GestureDetector(
+                onTap: () {
+                  Get.to(ProductDetailsScreen(product: products[index]));
+                },
+                child: Container(
+                  width: 150.w, // Adjust the width based on your design
+                  margin: EdgeInsets.only(
+                    bottom: Dimensions.paddingSize * 0.2,
+                    left: Dimensions.paddingSize * 0.7,
+                  ),
+                  decoration: BoxDecoration(
+                    color: AppColor.primaryColor.withOpacity(0.2),
+                    borderRadius:
+                        BorderRadius.circular(Dimensions.radius * 0.8),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.asset(
+                        products[index].imageUrl,
+                        height: 95.h,
+                        width: 150.w,
+                        fit: BoxFit.cover,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: Dimensions.paddingSizeHorizontal * 0.3,
+                            vertical: Dimensions.paddingSizeVertical * 0.1),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  flex: 7,
+                                  child: Text(
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    products[index].name,
+                                    style: CustomStyle.mediumTextStyle,
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 5,
+                                  child: Text(
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    'Price: \$${products[index].price.toString()}',
+                                    style: CustomStyle.smallestTextStyle
+                                        .copyWith(
+                                            fontSize:
+                                                Dimensions.headingTextSize5,
+                                            color: AppColor.categoryShadow),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            spaceVer(Dimensions.heightSize * 0.4),
+                            const ProductCounter()
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               );
             },
           ),
-        )
+        ),
       ],
     );
   }
 
-  _popularWidget(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        ///>>> title text
-        Padding(
+  Widget _popularWidget(BuildContext context) {
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      spaceVer(Dimensions.heightSize * 1.8),
+      Padding(
+        padding:
+            EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeHorizontal),
+        child: Text(
+          AppString.products,
+          style: CustomStyle.mediumTextStyle
+              .copyWith(fontSize: Dimensions.headingTextSize3 + 2),
+        ),
+      ),
+      SizedBox(
+        height: MediaQuery.of(context).size.height -
+            150.h, // Set the height to a value that fits your design
+        child: ListView.builder(
+          physics: AlwaysScrollableScrollPhysics(),
           padding: EdgeInsets.symmetric(
-              horizontal: Dimensions.paddingSizeHorizontal),
-          child: Text(
-            AppString.popular,
-            style: CustomStyle.mediumTextStyle,
+            horizontal: Dimensions.paddingSize * 0.2,
+            vertical: Dimensions.paddingSize * 0.4,
           ),
+          itemCount: products.length,
+          itemBuilder: (context, index) {
+            return GestureDetector(
+                onTap: () {
+                  Get.to(ProductDetailsScreen(product: products[index]));
+                },
+                child: Container(
+                  margin: EdgeInsets.only(
+                    bottom: Dimensions.paddingSize * 0.2,
+                    left: Dimensions.paddingSize * 0.5,
+                    right: Dimensions.paddingSize * 0.5,
+                  ),
+                  decoration: BoxDecoration(
+                      color: AppColor.primaryColor.withOpacity(0.2),
+                      borderRadius:
+                          BorderRadius.circular(Dimensions.radius * 0.8)),
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      backgroundColor: AppColor.primaryColor.withOpacity(0.3),
+                      backgroundImage: AssetImage(
+                        products[index].imageUrl,
+                      ),
+                      foregroundColor: AppColor.primaryColor.withOpacity(0.3),
+                    ),
+                    title: Text(
+                      products[index].name,
+                      style: CustomStyle.mediumTextStyle,
+                    ),
+                    subtitle: Text(
+                      'Price: \$${products[index].price.toString()}',
+                      style: CustomStyle.smallestTextStyle
+                          .copyWith(color: AppColor.categoryShadow),
+                    ),
+                    trailing: const ProductCounter(),
+                    onTap: () {
+                      Get.to(ProductDetailsScreen(product: products[index]));
+                    },
+                  ),
+                ),);
+          },
         ),
-        SizedBox(
-            height: Dimensions.heightSize), // You can use SizedBox for spacing
-
-        SizedBox(
-          height: 200,
-          // Wrap the ListView.builder with Expanded
-          child: ListView.builder(
-            shrinkWrap: true,
-            itemCount: 10,
-            itemBuilder: (context, index) {
-              return const ProductListTile(
-                imageUrl: 'https://example.com/product.jpg',
-                title: 'Product Name',
-                price: 29.99,
-              );
-            },
-          ),
-        ),
-      ],
-    );
-
+      )
+    ]);
   }
 }

@@ -7,6 +7,7 @@ import 'package:get_storage/get_storage.dart';
 import 'constants/app_strings.dart';
 import 'constants/routes.dart';
 import 'constants/themes.dart';
+import 'language/my_translate.dart';
 void main() async {
   // Locking Device Orientation
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,6 +34,9 @@ class MyApp extends StatelessWidget {
       useInheritedMediaQuery: true,
       designSize: const Size(414, 896),
       builder: (_, child) => GetMaterialApp(
+               locale: const Locale('en', 'US'), // default l
+        fallbackLocale: const Locale('en', 'US'), 
+        translations: MyTranslations(), 
         title: AppString.appName,
         debugShowCheckedModeBanner: false,
         theme: Themes.light,

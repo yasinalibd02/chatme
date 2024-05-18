@@ -13,7 +13,7 @@ class ProductsScreen extends StatelessWidget {
   final String category;
   final List<Product> products;
 
-  ProductsScreen({required this.category, required this.products});
+  const ProductsScreen({super.key, required this.category, required this.products});
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +22,7 @@ class ProductsScreen extends StatelessWidget {
         title: category,
       ),
       body: ListView.builder(
+ 
         padding: EdgeInsets.symmetric(
 horizontal: Dimensions.paddingSize*0.2,
 vertical: Dimensions.paddingSize*0.4
@@ -42,7 +43,6 @@ vertical: Dimensions.paddingSize*0.4
               borderRadius: BorderRadius.circular(Dimensions.radius*0.8)
           ),
             child: ListTile(
-              
               leading: CircleAvatar(
                 backgroundColor: AppColor.primaryColor.withOpacity(0.3),
                 backgroundImage: AssetImage(products[index].imageUrl,
@@ -59,7 +59,7 @@ vertical: Dimensions.paddingSize*0.4
                 color: AppColor.categoryShadow
               ),
               ),
-              trailing: ProductCounter(),
+              trailing: const ProductCounter(),
               onTap: () {
                 Get.to(ProductDetailsScreen(product: products[index]));
               },

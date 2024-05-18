@@ -1,13 +1,9 @@
 class AppString {
   static String appName = "chatme";
   static const String appVersion = "1.0.0";
-
-  //>>>>>>>.welcome screeen
   static const String welcomeSubTitle =
       "Welcome to Our World of Shopping Delights";
   static const String getStarted = "Get Started";
-
-  //>>>>>>>>> sign in screen
   static const String enterEmailAddress = "Enter Email Address";
   static const String emailAddress = "Email Address";
   static const String password = "Password";
@@ -20,8 +16,6 @@ class AppString {
   static const String forgotPassword = "Forgot Password";
   static const String doNotHaveAnAccount = "Do not have an account? ";
   static const String signUp = "Sign Up";
-
-  //>>>>>>>> sign up screen
   static const String signUpTitle = "Create an Account";
   static const String alreadyHaveAn = 'Already have an account? ';
   static const String signUpSubtitle =
@@ -30,8 +24,6 @@ class AppString {
   static const String enterFirstName = "Enter First Name";
   static const String lastName = "Last Name";
   static const String enterLastName = "Enter Last Name";
-
-  //>>>>>>> forgot password
   static const String pleaseProvideTheEmailAddress = "Please provide the email address you used to create the account";
   static const String submit = "Submit";
   static const String pleaseEnterTheOpt = "Please enter the OTP that was sent to your email";
@@ -41,8 +33,6 @@ class AppString {
    static const String resetYourPassword = "Please reset your password";
    static const String ok = "Ok";
    static const String reset = "Reset";
-
-  //>>>>>dashboard
   static const String foodAndGroceries = "Food and Groceries";
   static const String medicine = "Medicine";
   static const String healthAndBeauty = "Health and Beauty: ";
@@ -53,8 +43,6 @@ class AppString {
   static const String sportsAndFitness = "Sports and Fitness:";
   static const String pets = "Pets";
   static const String booksAndMedia = "Books and Media";
-
-  //drawer
   static const String changePassword = "Change Password";
   static const String changeLanguage = "Change Language";
   static const String aboutUs = "About Us";
@@ -63,7 +51,6 @@ class AppString {
   static const String categories    = "Categories";
   static const String profile    = "Profile";
   static const String notification    = "Notification";
-
   static const String signOut = "Sign Out";
   static const String filters = "Filters";
   static const String searchHere = "Search Here";
@@ -86,5 +73,6 @@ class AppString {
   static const String updatePassword= "Update Password";
   static const String updateLanguage= "Update Language";
   static const String order = "Order";
+  static const String products = "Products";
 
 }

@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../../views/dashboard/categories/categores_screen.dart';
 import '../../views/dashboard/home_screen.dart';
 class NavigationController extends GetxController {
-  final RxInt selectedIndex = 1.obs;
+  final RxInt selectedIndex = 0.obs;
 
   final List page = [ 
     const HomeScreen(),

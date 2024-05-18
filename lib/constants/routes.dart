@@ -1,5 +1,4 @@
 import 'package:chatme/getx/bindings/bindings.dart';
-import 'package:chatme/views/dashboard/categories/product_details_screen.dart';
 import 'package:get/get.dart';
 
 import '../views/auth/forgot_otp_screen.dart';
@@ -10,8 +9,8 @@ import '../views/auth/sign_in_screen.dart';
 import '../views/auth/sign_up_screen.dart';
 import '../views/begins/splash_screen.dart';
 import '../views/begins/welcome_screen.dart';
-import '../views/dashboard/categories/products_screen.dart';
-import '../views/dashboard/categories/order_screen.dart';
+// import '../views/dashboard/categories/products_screen.dart';
+// import '../views/dashboard/categories/order_screen.dart';
 import '../views/dashboard/navigation_screen.dart';
 import '../views/drawer/change_language_screen.dart';
 import '../views/drawer/change_password_screen.dart';
@@ -74,7 +73,7 @@ class Routes {
     ),
     GetPage(
       name: Routes.changeLanguageScreen,
-      page: () => const ChangeLanguageScreen(),
+      page: () =>  ChangeLanguageScreen(),
     ),
      GetPage(
       name: Routes.changePasswordScreen,
@@ -88,9 +87,9 @@ class Routes {
     //   name: Routes.productScreen,
     //   page: () => const ProductScreen(),
     // ),
-      GetPage(
-      name: Routes.orderScreen,
-      page: () => const OrderScreen(),
-    ),
+    //   GetPage(
+    //   name: Routes.orderScreen,
+    //   page: () => const OrderScreen(),
+    // ),
   ];
 }
