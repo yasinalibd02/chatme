@@ -1,3 +1,6 @@
+import 'package:chatme/constants/app_colors.dart';
+import 'package:chatme/constants/app_sized.dart';
+import 'package:chatme/constants/style.dart';
 import 'package:flutter/material.dart';
 
 class CategoryCard extends StatelessWidget {
@@ -12,6 +15,8 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color:  AppColor.primaryColor.withOpacity(0.4),
+      surfaceTintColor: AppColor.primaryColor.withOpacity(0.4),
       elevation: 5,
       child: InkWell(
         onTap: () {
@@ -20,16 +25,28 @@ class CategoryCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset(
-              imageUrl,
-              width: 100,
+            Container(
+               width: 100,
               height: 100,
-              fit: BoxFit.cover,
+            
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(
+                  Dimensions.radius*1.4
+                ),
+                image: DecorationImage(image: AssetImage(
+                    imageUrl,
+                   
+                  ),
+                  
+                    fit: BoxFit.cover,
+                  )
+              ),
+             
             ),
-            SizedBox(height: 10),
+            spaceVer(Dimensions.heightSize*0.5),
             Text(
               title,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style:CustomStyle.mediumTextStyle
             ),
           ],
         ),

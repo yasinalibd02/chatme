@@ -85,5 +85,6 @@ class AppString {
   static const String enterConfirmPassword= "Enter Confirm Password";
   static const String updatePassword= "Update Password";
   static const String updateLanguage= "Update Language";
+  static const String order = "Order";
 
 }
