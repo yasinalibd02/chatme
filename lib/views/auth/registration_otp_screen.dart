@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:chatme/constants/routes.dart';
 import 'package:chatme/constants/style.dart';
-import 'package:flutter/material.dart';
 import 'package:chatme/constants/app_sized.dart';
 import 'package:chatme/constants/app_strings.dart';
 import 'package:chatme/getx/auth/forgot_password_controller.dart';
 import 'package:chatme/widget/custom_button.dart';
-import 'package:chatme/widget/input_filed.dart';
 import 'package:get/get.dart';
-import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/otp_text_field.dart';
 import 'package:otp_text_field/style.dart';
 import '../../constants/app_colors.dart';
-import '../../getx/auth/reset_password_controller.dart';
 import '../../widget/others/my_app_bar_widget.dart';
 class RegistrationOtpScreen extends StatelessWidget {
    RegistrationOtpScreen({super.key});
@@ -56,12 +52,8 @@ final controller = Get.put(ForgotPasswordController());
           textFieldAlignment: MainAxisAlignment.spaceAround,
           fieldStyle: FieldStyle.underline,
           onChanged: (pin) {
-            // Handle changed OTP
-            print("Changed: " + pin);
           },
           onCompleted: (pin) {
-            // Handle completed OTP
-            print("Completed: " + pin);
           },
         ),
 

@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:chatme/constants/app_colors.dart';
@@ -53,6 +51,8 @@ class HomeScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // Title text
+        spaceVer(Dimensions.heightSize * 0.8),
+
         Padding(
           padding: EdgeInsets.symmetric(
               horizontal: Dimensions.paddingSizeHorizontal),
@@ -138,7 +138,8 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 170.h, // Set a fixed height for the horizontal ListView
+          height: 190.h,
+         
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             padding: EdgeInsets.symmetric(
@@ -151,7 +152,7 @@ class HomeScreen extends StatelessWidget {
                   Get.to(ProductDetailsScreen(product: products[index]));
                 },
                 child: Container(
-                  width: 150.w, // Adjust the width based on your design
+                  width: 175.w, // Adjust the width based on your design
                   margin: EdgeInsets.only(
                     bottom: Dimensions.paddingSize * 0.2,
                     left: Dimensions.paddingSize * 0.7,
@@ -166,8 +167,8 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       Image.asset(
                         products[index].imageUrl,
-                        height: 95.h,
-                        width: 150.w,
+                        height: 105.h,
+                        width: 175.w,
                         fit: BoxFit.cover,
                       ),
                       Padding(
@@ -233,10 +234,10 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       SizedBox(
-        height: MediaQuery.of(context).size.height -
+        height: MediaQuery.of(context).size.height *
             150.h, // Set the height to a value that fits your design
         child: ListView.builder(
-          physics: AlwaysScrollableScrollPhysics(),
+          physics: const AlwaysScrollableScrollPhysics(),
           padding: EdgeInsets.symmetric(
             horizontal: Dimensions.paddingSize * 0.2,
             vertical: Dimensions.paddingSize * 0.4,

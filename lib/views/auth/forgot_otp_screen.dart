@@ -9,7 +9,6 @@ import 'package:otp_text_field/otp_text_field.dart';
 import '../../constants/app_colors.dart';
 import '../../constants/style.dart';
 import '../../widget/others/my_app_bar_widget.dart';
-import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/style.dart';
 class ForgotOtpScreen extends StatelessWidget {
    ForgotOtpScreen({super.key});
@@ -55,11 +54,9 @@ class ForgotOtpScreen extends StatelessWidget {
 
           onChanged: (pin) {
             // Handle changed OTP
-            print("Changed: " + pin);
           },
           onCompleted: (pin) {
             // Handle completed OTP
-            print("Completed: " + pin);
           },
         ),
       

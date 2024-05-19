@@ -21,10 +21,10 @@ class CategoryWidget extends StatelessWidget {
           height: 10, // Adjust the height of the image as needed
           fit: BoxFit.cover,
         ),
-        SizedBox(height: 8), // Add some spacing between the image and the title
+        const SizedBox(height: 8), // Add some spacing between the image and the title
         Text(
           title,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 18, // Adjust the font size of the title as needed
             fontWeight: FontWeight.bold,
           ),

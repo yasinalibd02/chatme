@@ -3,7 +3,6 @@ import 'package:chatme/constants/style.dart';
 import 'package:flutter/material.dart';
 import 'package:chatme/constants/app_sized.dart';
 import 'package:chatme/constants/app_strings.dart';
-import 'package:chatme/getx/auth/forgot_password_controller.dart';
 import 'package:chatme/widget/custom_button.dart';
 import 'package:chatme/widget/input_filed.dart';
 import 'package:get/get.dart';
@@ -41,11 +40,13 @@ class ResetPasswordScreen extends StatelessWidget {
 
         //>>>>>>>>>> common input filed
         CommonInputField(
+              isPassword: true,
             controller: controller.newPasswordController,
             hintText: AppString.enterNewPassword,
             labelText: AppString.newPassword),
             spaceVer(Dimensions.heightSize),
               CommonInputField(
+                    isPassword: true,
             controller: controller.confirmPasswordController,
             hintText: AppString.enterConfirmPassword,
             labelText: AppString.confirmPassword),

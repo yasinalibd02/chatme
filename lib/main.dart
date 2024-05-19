@@ -45,10 +45,11 @@ class MyApp extends StatelessWidget {
         darkTheme: Themes.dark,
         themeMode: Themes().theme,
         navigatorKey: Get.key,
-        initialRoute: Routes.splashScreen,
+        initialRoute: Routes.navigationScreen,
         getPages: Routes.list,
         builder: (context, widget) {
           return MediaQuery(
+            // ignore: deprecated_member_use
             data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
             child: widget!,
           );

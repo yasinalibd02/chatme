@@ -2,11 +2,9 @@ import 'package:chatme/constants/app_colors.dart';
 import 'package:chatme/constants/app_sized.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../backend/data/categories_data.dart';
 import '../../../backend/data/icons.dart';
 import '../../../constants/style.dart';
-import '../../../widget/dashbaord/categories_screen_widget.dart';
 import 'products_screen.dart';
 
 class CategoriesScreen extends StatelessWidget {

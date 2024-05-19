@@ -27,9 +27,10 @@ class SignInScreen extends StatelessWidget {
   _bodyWidget(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(Dimensions.paddingSize * 0.7),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: ListView(
+
         children: [
+          spaceVer(Dimensions.heightSize*2),
           _logoWidget(context),
           _titleSubtitleWidget(context),
           _commonInputField(context),
@@ -78,6 +79,7 @@ class SignInScreen extends StatelessWidget {
         ),
         spaceVer(Dimensions.heightSize),
         CommonInputField(
+          isPassword: true,
           controller: TextEditingController(),
           hintText: AppString.enterPassword.tr,
           labelText: AppString.password.tr,
@@ -120,22 +122,25 @@ class SignInScreen extends StatelessWidget {
   }
 
   _doNotHaveAnAccount(BuildContext context) {
-    return RichText(
-      text: TextSpan(
-        text: AppString.doNotHaveAnAccount.tr,
-        style: CustomStyle.smallTextStyle,
-        children: [
-          TextSpan(
-            text: AppString.signUp.tr,
-            style: CustomStyle.smallTextStyle.copyWith(
-              color: AppColor.primaryColor,
-            ),
-            recognizer: TapGestureRecognizer()
-              ..onTap = () {
-                Get.toNamed(Routes.signUpScreen);
-              },
-          )
-        ],
+    return Align(
+      alignment: Alignment.center,
+      child: RichText(
+        text: TextSpan(
+          text: AppString.doNotHaveAnAccount.tr,
+          style: CustomStyle.smallTextStyle,
+          children: [
+            TextSpan(
+              text: AppString.signUp.tr,
+              style: CustomStyle.smallTextStyle.copyWith(
+                color: AppColor.primaryColor,
+              ),
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  Get.toNamed(Routes.signUpScreen);
+                },
+            )
+          ],
+        ),
       ),
     );
   }

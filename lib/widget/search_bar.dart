@@ -17,10 +17,12 @@ class SearchInputField extends StatefulWidget {
   }) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _SearchInputFieldState createState() => _SearchInputFieldState();
 }
 
 class _SearchInputFieldState extends State<SearchInputField> {
+  // ignore: unused_field
   bool _isFocused = false;
 
   @override

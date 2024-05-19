@@ -27,8 +27,8 @@ class SignUpScreen extends StatelessWidget {
   _bodyWidget(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(Dimensions.paddingSize * 0.7),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: ListView(
+       
         children: [
           _logoWidget(context),
           _titleSubtitleWidget(context),
@@ -50,13 +50,16 @@ class SignUpScreen extends StatelessWidget {
 
   _titleSubtitleWidget(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         spaceVer(Dimensions.heightSize),
         Text(
           AppString.signUpTitle.tr,
           style: CustomStyle.largestTextStyle,
         ),
-        Text(AppString.signUpSubtitle.tr, style: CustomStyle.smallestTextStyle),
+        Align(
+          alignment: Alignment.center,
+          child: Text(AppString.signUpSubtitle.tr, style: CustomStyle.smallestTextStyle)),
       ],
     );
   }
@@ -125,22 +128,25 @@ class SignUpScreen extends StatelessWidget {
   }
 
   _alreadyHaveAnAccount(BuildContext context) {
-    return RichText(
-      text: TextSpan(
-        text: AppString.alreadyHaveAn,
-        style: CustomStyle.smallTextStyle,
-        children: [
-          TextSpan(
-            text: AppString.signIn,
-            style: CustomStyle.smallTextStyle.copyWith(
-              color: AppColor.primaryColor,
-            ),
-            recognizer: TapGestureRecognizer()
-              ..onTap = () {
-                Get.toNamed(Routes.signInScreen);
-              },
-          )
-        ],
+    return Align(
+      alignment: Alignment.center,
+      child: RichText(
+        text: TextSpan(
+          text: AppString.alreadyHaveAn,
+          style: CustomStyle.smallTextStyle,
+          children: [
+            TextSpan(
+              text: AppString.signIn,
+              style: CustomStyle.smallTextStyle.copyWith(
+                color: AppColor.primaryColor,
+              ),
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  Get.toNamed(Routes.signInScreen);
+                },
+            )
+          ],
+        ),
       ),
     );
   }

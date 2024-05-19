@@ -19,6 +19,7 @@ class _ProductCounterState extends State<ProductCounter> {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
+           //!>>>>>>>>   started remove
       InkWell(
           onTap: () {
             setState(() {
@@ -32,11 +33,12 @@ class _ProductCounterState extends State<ProductCounter> {
                 EdgeInsets.only(
                   right: Dimensions.paddingSizeHorizontal * 0.21,
                   left: Dimensions.paddingSizeHorizontal * 0.21,
+               
                   ),
             alignment: Alignment.center,
             height: Dimensions.heightSize * 1.6,
             width: Dimensions.widthSize * 2.3,
-            padding: EdgeInsets.all(Dimensions.paddingSize * 0.2),
+          
             decoration: BoxDecoration(
                 color: AppColor.primaryColor,
                 borderRadius: BorderRadius.circular(Dimensions.radius * 0.5)),
@@ -47,10 +49,12 @@ class _ProductCounterState extends State<ProductCounter> {
             ),
           ),
         ),
+
+           //!>>>>>>>>   started count
         Container(
            alignment: Alignment.center,
-        height: Dimensions.heightSize * 1.6,
-          width: Dimensions.widthSize * 2.3,
+        height: Dimensions.heightSize * 1.75,
+          width: Dimensions.widthSize * 2.5,
       
           decoration: BoxDecoration(
             border: Border.all(width: 1,
@@ -60,10 +64,14 @@ class _ProductCounterState extends State<ProductCounter> {
           child: Text(
             count.toString(),
             style: CustomStyle.mediumTextStyle.copyWith(
-              color: AppColor.primaryColor
+              color: AppColor.primaryColor,
+              fontSize: Dimensions.headingTextSize4
             )
           ),
         ),
+
+
+        //!>>>>>>>>   started add
        InkWell(
         onTap: (){
            setState(() {
@@ -77,9 +85,7 @@ class _ProductCounterState extends State<ProductCounter> {
           alignment:Alignment.center,
           height: Dimensions.heightSize * 1.6,
             width: Dimensions.widthSize * 2.3,
-            padding: EdgeInsets.all(
-              Dimensions.paddingSize*0.2
-            ),
+          
             decoration:  BoxDecoration(
                              color: AppColor.primaryColor,
          

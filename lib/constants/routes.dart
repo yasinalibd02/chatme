@@ -40,7 +40,7 @@ class Routes {
     ),
      GetPage(
       name: Routes.welcomeScreen,
-      page: () =>  WelcomeScreen(),
+      page: () =>  const WelcomeScreen(),
     ),
      GetPage(
       name: Routes.signInScreen,
@@ -73,7 +73,7 @@ class Routes {
     ),
     GetPage(
       name: Routes.changeLanguageScreen,
-      page: () =>  ChangeLanguageScreen(),
+      page: () =>  const ChangeLanguageScreen(),
     ),
      GetPage(
       name: Routes.changePasswordScreen,

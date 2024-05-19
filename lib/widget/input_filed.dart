@@ -8,6 +8,7 @@ class CommonInputField extends StatefulWidget {
   final String labelText;
   final Color? borderColor;
   final int maxLines;
+  final bool isPassword;
 
   const CommonInputField({
     Key? key,
@@ -16,27 +17,32 @@ class CommonInputField extends StatefulWidget {
     required this.labelText,
     this.borderColor = AppColor.primaryColor,
     this.maxLines = 1,
+    this.isPassword = false,
   }) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _CommonInputFieldState createState() => _CommonInputFieldState();
 }
 
 class _CommonInputFieldState extends State<CommonInputField> {
   bool _isFocused = false;
+  bool _obscureText = true;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       style: TextStyle(
-color: AppColor.primaryColor,
-fontSize: Dimensions.headingTextSize4
-     , ),
+        color: AppColor.primaryColor,
+        fontSize: Dimensions.headingTextSize4,
+      ),
       controller: widget.controller,
+      obscureText: widget.isPassword ? _obscureText : false,
       decoration: InputDecoration(
         hintText: widget.hintText,
         labelText: widget.labelText,
-     labelStyle:   TextStyle(color: _isFocused ? AppColor.primaryColor : Colors.black),
+        labelStyle:
+            TextStyle(color: _isFocused ? AppColor.primaryColor : Colors.black),
         hintStyle:
             TextStyle(color: _isFocused ? AppColor.primaryColor : Colors.black),
         border: OutlineInputBorder(
@@ -52,6 +58,19 @@ fontSize: Dimensions.headingTextSize4
           borderSide: BorderSide(color: widget.borderColor!),
           borderRadius: BorderRadius.circular(8),
         ),
+        suffixIcon: widget.isPassword
+            ? IconButton(
+                icon: Icon(
+                  _obscureText ? Icons.visibility : Icons.visibility_off,
+                  color: AppColor.primaryColor,
+                ),
+                onPressed: () {
+                  setState(() {
+                    _obscureText = !_obscureText;
+                  });
+                },
+              )
+            : null,
       ),
       maxLines: widget.maxLines,
       onTap: () {

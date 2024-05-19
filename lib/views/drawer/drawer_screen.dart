@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:chatme/constants/routes.dart';
 import 'package:chatme/constants/style.dart';
 import 'package:flutter/material.dart';
