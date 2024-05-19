@@ -16,8 +16,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: AppColor.backgroundColor,
       leading: Padding(
         padding:EdgeInsets.only(
-          left: Dimensions.paddingSizeHorizontal,
-       
+          left: Dimensions.paddingSizeHorizontal*0.5,
+          right: Dimensions.paddingSizeHorizontal*0.5,
         ),
         child: CircleAvatar(
         backgroundColor: 

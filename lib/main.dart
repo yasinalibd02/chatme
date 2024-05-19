@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,49 +7,49 @@ import 'constants/app_strings.dart';
 import 'constants/routes.dart';
 import 'constants/themes.dart';
 import 'language/my_translate.dart';
+
 void main() async {
-  // Locking Device Orientation
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
 
-   
-  /// >>> initializing getStorage
   await GetStorage.init();
 
-  /// >>> main app
-  runApp(const MyApp());
+  final box = GetStorage();
+  String langSmall = box.read('smallLanguage') ?? 'en';
+  String langCap = box.read('capitalLanguage') ?? 'US';
+  Locale initialLocale = Locale(langSmall, langCap);
+
+  runApp(MyApp(initialLocale: initialLocale));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final Locale initialLocale;
+
+  const MyApp({Key? key, required this.initialLocale}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context);
     return ScreenUtilInit(
       useInheritedMediaQuery: true,
       designSize: const Size(414, 896),
       builder: (_, child) => GetMaterialApp(
-               locale: const Locale('en', 'US'), // default l
-        fallbackLocale: const Locale('en', 'US'), 
-        translations: MyTranslations(), 
+        locale: initialLocale,
+        fallbackLocale: const Locale('en', 'US'),
+        translations: MyTranslations(),
         title: AppString.appName,
         debugShowCheckedModeBanner: false,
         theme: Themes.light,
         darkTheme: Themes.dark,
-        themeMode: Themes().theme, 
+        themeMode: Themes().theme,
         navigatorKey: Get.key,
-        initialRoute: Routes.navigationScreen,
-           getPages: Routes.list,
+        initialRoute: Routes.splashScreen,
+        getPages: Routes.list,
         builder: (context, widget) {
-          ScreenUtil.init(context);
-           
           return MediaQuery(
-            // ignore: deprecated_member_use
-            data: MediaQuery.of(context).copyWith(textScaleFactor: .9),
+            data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
             child: widget!,
           );
         },

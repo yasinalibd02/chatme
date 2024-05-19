@@ -53,10 +53,10 @@ class SignUpScreen extends StatelessWidget {
       children: [
         spaceVer(Dimensions.heightSize),
         Text(
-          AppString.signUpTitle,
+          AppString.signUpTitle.tr,
           style: CustomStyle.largestTextStyle,
         ),
-        Text(AppString.signUpSubtitle, style: CustomStyle.smallestTextStyle),
+        Text(AppString.signUpSubtitle.tr, style: CustomStyle.smallestTextStyle),
       ],
     );
   }
@@ -70,8 +70,8 @@ class SignUpScreen extends StatelessWidget {
           Expanded(
             child: CommonInputField(
             controller: TextEditingController(),
-            hintText: AppString.enterFirstName,
-            labelText: AppString.firstName,
+            hintText: AppString.enterFirstName.tr,
+            labelText: AppString.firstName.tr,
             borderColor: AppColor.borderColor,
             maxLines: 1,
                     ),
@@ -80,8 +80,8 @@ class SignUpScreen extends StatelessWidget {
             Expanded(
             child: CommonInputField(
             controller: TextEditingController(),
-            hintText: AppString.enterLastName,
-            labelText: AppString.lastName,
+            hintText: AppString.enterLastName.tr,
+            labelText: AppString.lastName.tr,
             borderColor: AppColor.borderColor,
             maxLines: 1,
                     ),
@@ -90,16 +90,16 @@ class SignUpScreen extends StatelessWidget {
         spaceVer(Dimensions.heightSize * 1),
         CommonInputField(
           controller: TextEditingController(),
-          hintText: AppString.enterEmailAddress,
-          labelText: AppString.emailAddress,
+          hintText: AppString.enterEmailAddress.tr,
+          labelText: AppString.emailAddress.tr,
           borderColor: AppColor.borderColor,
           maxLines: 1,
         ),
         spaceVer(Dimensions.heightSize),
         CommonInputField(
           controller: TextEditingController(),
-          hintText: AppString.enterPassword,
-          labelText: AppString.password,
+          hintText: AppString.enterPassword.tr,
+          labelText: AppString.password.tr,
           borderColor: AppColor.borderColor,
           maxLines: 1,
         ),
@@ -114,7 +114,7 @@ class SignUpScreen extends StatelessWidget {
         vertical: Dimensions.marginSizeVertical * 1.5,
       ),
       child: CommonButton(
-        title: AppString.signUp,
+        title: AppString.signUp.tr,
         onPressed: () {
           Get.toNamed(Routes.registrationOtpScreen);
         },

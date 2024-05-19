@@ -227,7 +227,7 @@ class HomeScreen extends StatelessWidget {
         padding:
             EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeHorizontal),
         child: Text(
-          AppString.products,
+          AppString.popular,
           style: CustomStyle.mediumTextStyle
               .copyWith(fontSize: Dimensions.headingTextSize3 + 2),
         ),

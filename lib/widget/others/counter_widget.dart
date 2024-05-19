@@ -29,7 +29,10 @@ class _ProductCounterState extends State<ProductCounter> {
           },
           child: Container(
             margin:
-                EdgeInsets.only(right: Dimensions.paddingSizeHorizontal * 0.21),
+                EdgeInsets.only(
+                  right: Dimensions.paddingSizeHorizontal * 0.21,
+                  left: Dimensions.paddingSizeHorizontal * 0.21,
+                  ),
             alignment: Alignment.center,
             height: Dimensions.heightSize * 1.6,
             width: Dimensions.widthSize * 2.3,
@@ -68,7 +71,8 @@ class _ProductCounterState extends State<ProductCounter> {
         });},
          child: Container(
           margin: EdgeInsets.only(
-            left: Dimensions.paddingSizeHorizontal*0.2
+            left: Dimensions.paddingSizeHorizontal*0.2,
+            right: Dimensions.paddingSizeHorizontal*0.2,
           ),
           alignment:Alignment.center,
           height: Dimensions.heightSize * 1.6,

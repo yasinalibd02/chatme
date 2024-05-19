@@ -172,7 +172,8 @@ class NavigationScreen extends StatelessWidget {
       title:Image.asset(
       AppAssets.logo,
       color: AppColor.primaryColor,
-      scale: 3,
+      height: 80,
+      width: 100,
   
     ),
       centerTitle: true,

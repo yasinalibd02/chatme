@@ -15,7 +15,7 @@ class ChangePasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MyAppBar(title: AppString.changePassword,),
+      appBar: const MyAppBar(title: AppString.changeLanguage,),
       body: _body(context),
     );
   }

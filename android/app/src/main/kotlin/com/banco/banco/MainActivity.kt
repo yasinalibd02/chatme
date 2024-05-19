@@ -1,4 +1,4 @@
-package com.example.chatme
+package com.banco.banco
 
 import io.flutter.embedding.android.FlutterActivity
 

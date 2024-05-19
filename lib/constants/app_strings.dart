@@ -1,5 +1,5 @@
 class AppString {
-  static String appName = "chatme";
+  static String appName = "banco";
   static const String appVersion = "1.0.0";
   static const String welcomeSubTitle =
       "Welcome to Our World of Shopping Delights";
@@ -74,5 +74,7 @@ class AppString {
   static const String updateLanguage= "Update Language";
   static const String order = "Order";
   static const String products = "Products";
+  static const String english= "English";
+  static const String arabic = "Arabic";
 
 }

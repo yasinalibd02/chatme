@@ -1,74 +1,103 @@
-import 'package:chatme/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../constants/app_strings.dart';
-import '../../language/language_model.dart';
+import 'package:chatme/constants/app_colors.dart';
+import 'package:chatme/constants/app_sized.dart';
+import 'package:chatme/constants/style.dart';
+import '../../backend/local_storage.dart';
 import '../../widget/others/my_app_bar_widget.dart';
 
-class ChangeLanguageScreen extends StatelessWidget {
-  ChangeLanguageScreen({super.key});
+class ChangeLanguageScreen extends StatefulWidget {
+  const ChangeLanguageScreen({super.key});
+
+  @override
+  _ChangeLanguageScreenState createState() => _ChangeLanguageScreenState();
+}
+
+class Language {
+  final String code;
+  final String name;
+
+  Language({required this.code, required this.name});
+}
+
+class _ChangeLanguageScreenState extends State<ChangeLanguageScreen> {
   final List<Language> languages = [
     Language(code: 'en', name: 'English'),
     Language(code: 'ar', name: 'Arabic'),
   ];
 
+  String? _selectedLanguage;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedLanguage =
+        LocalStorage.getLanguage()[0]; // Read the locale from LocalStorage
+  }
+
+  void _changeLanguage(String languageCode) {
+    setState(() {
+      _selectedLanguage = languageCode;
+    });
+
+    String langCap = languageCode == 'ar' ? 'SA' : 'US';
+    Locale locale = Locale(languageCode, langCap);
+
+    LocalStorage.saveLanguage(
+      langSmall: languageCode,
+      langCap: langCap,
+      languageName: languageCode == 'ar' ? 'Arabic' : 'English',
+    );
+
+    Get.updateLocale(locale); // Update the locale with GetX
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
-      appBar:  const MyAppBar(
-          title: AppString.changePassword,
-        
+      appBar: MyAppBar(
+        title: 'changeLanguage'.tr,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+      body: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: Dimensions.marginSizeHorizontal,
+          vertical: Dimensions.marginSizeVertical * 0.2,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                              surfaceTintColor: Colors.black, // Background color
-
-              ),
-              onPressed: () {
-                Get.updateLocale(Locale('en', 'US'));
-              },
-              child: Text(
-                'English',
-                style: TextStyle(color: Colors.white), // Text color
-              ),
+            Text(
+              '${'changeLanguage'.tr} :',
+              style: CustomStyle.largeTextStyle,
             ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                surfaceTintColor: Colors.black, // Background color
-              ),
-              onPressed: () {
-                Get.updateLocale(Locale('ar', 'SA'));
-              },
-              child: Text(
-                'عربي',
-                style: TextStyle(color: Colors.white), // Text color
-              ),
-            ),
+            Column(
+              children: [
+                ...languages.map((language) {
+                  bool isSelected = language.code == _selectedLanguage;
+                  return Padding(
+                    padding: EdgeInsets.only(
+                        bottom: Dimensions.paddingSizeVertical * 0.1),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        surfaceTintColor:
+                            isSelected ? AppColor.primaryColor : Colors.black,
+                        backgroundColor:
+                            isSelected ? AppColor.primaryColor : Colors.black,
+                      ),
+                      onPressed: () => _changeLanguage(language.code),
+                      child: Text(
+                        language.name.tr,
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  );
+                }).toList(),
+              ],
+            )
           ],
         ),
       ),
     );
   }
-   void _changeLanguage(BuildContext context, String languageCode) {
-    Locale locale;
-    switch (languageCode) {
-      case 'ar':
-        locale = const Locale('ar', 'SA'); // Arabic
-        break;
-      case 'en':
-      default:
-        locale = const Locale('en', 'US'); // English
-        break;
-    }
-
-    Get.updateLocale(locale);
-  }
-
 }

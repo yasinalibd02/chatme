@@ -40,7 +40,7 @@ class Routes {
     ),
      GetPage(
       name: Routes.welcomeScreen,
-      page: () => const WelcomeScreen(),
+      page: () =>  WelcomeScreen(),
     ),
      GetPage(
       name: Routes.signInScreen,

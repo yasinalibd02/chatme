@@ -79,6 +79,8 @@ class MyTranslations extends Translations {
           'updateLanguage': "Update Language",
           'order': "Order",
           'products': "Products",
+          'english': "English",
+          'arabic': "Arabic",
         },
         'ar_SA': {
           'appName': "تشات مي",
@@ -156,6 +158,8 @@ class MyTranslations extends Translations {
           'updateLanguage': "تحديث اللغة",
           'order': "طلب",
           'products': "المنتجات",
+          'english': "المنتجات",
+          'arabic': "طلب",
         },
       };
 }

@@ -46,17 +46,17 @@ class WelcomeScreen extends StatelessWidget {
           SizedBox(
            height:  Dimensions.heightSize*4),
 
-           const Text("CHAT ME",
+           const Text("BANCO",
            style: TextStyle(
               fontSize: 32,
               color: AppColor.primaryColor,
             ),
             ),
           SizedBox(height:  Dimensions.heightSize),
-          const FittedBox(
+           FittedBox(
             child: Text( 
-                AppString.welcomeSubTitle
-                 ,style: TextStyle(
+                AppString.welcomeSubTitle.tr
+                 ,style: const TextStyle(
                   fontSize: 20,
                    color: AppColor.primaryColorOpacity,
                   
@@ -67,7 +67,7 @@ class WelcomeScreen extends StatelessWidget {
         
           CommonButton(
 width:MediaQuery.sizeOf(context).width*0.6,
-            title: AppString.getStarted,
+            title: AppString.getStarted.tr,
             onPressed: () {
               Get.toNamed(Routes.signInScreen);
             },

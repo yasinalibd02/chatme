@@ -83,7 +83,7 @@ class DrawerScreen extends StatelessWidget {
       children: [
         buildMenuItem(
           context,
-          title: AppString.changePassword,
+          title: AppString.changePassword.tr,
           imagePath: Icons.key_outlined,
           onTap: () {
             Get.toNamed(Routes.changePasswordScreen);
@@ -91,31 +91,31 @@ class DrawerScreen extends StatelessWidget {
         ),
         buildMenuItem(
           context,
-          title: AppString.changeLanguage,
+          title: AppString.changeLanguage.tr,
           imagePath: Icons.language,
           onTap: () {
-
             Get.toNamed(Routes.changeLanguageScreen);
-
           },
         ),
         buildMenuItem(
           context,
-          title: AppString.aboutUs,
+          title: AppString.aboutUs.tr,
           imagePath: Icons.contact_page_rounded,
           onTap: () {},
         ),
         buildMenuItem(
           context,
-          title: AppString.privacyPolicy,
+          title: AppString.privacyPolicy.tr,
           imagePath: Icons.privacy_tip_outlined,
           onTap: () {},
         ),
         buildMenuItem(
           context,
-          title: AppString.signOut,
+          title: AppString.signOut.tr,
           imagePath: Icons.logout_outlined,
-          onTap: () {},
+          onTap: () {
+            Get.offAllNamed(Routes.signInScreen);
+          },
         ),
       ],
     );
@@ -157,7 +157,7 @@ class DrawerScreen extends StatelessWidget {
                 Text(
                   title,
                   style: CustomStyle.mediumTextStyle.copyWith(
-                    fontSize: Dimensions.headingTextSize3 - 3,
+                    fontSize: Dimensions.headingTextSize3,
                   ),
                 ).paddingOnly(
                   top: 8,

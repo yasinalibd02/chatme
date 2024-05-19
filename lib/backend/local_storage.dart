@@ -182,33 +182,28 @@ class LocalStorage {
 
     await box.write(isOnBoardDoneKey, isOnBoardDone);
   }
+  static final _box = GetStorage();
 
-  static Future<void> saveLanguage({
-    required String langSmall,
-    required String langCap,
-    required String languageName,
-  }) async {
-    final box1 = GetStorage();
-    final box2 = GetStorage();
-    final box3 = GetStorage();
-    var locale = Locale(langSmall, langCap);
-    Get.updateLocale(locale);
-    await box1.write(smallLanguage, langSmall);
-    await box2.write(capitalLanguage, langCap);
-    await box3.write(language, languageName);
+
+  static void saveLanguage(
+      {required String langSmall,
+      required String langCap,
+      required String languageName}) {
+    _box.write('smallLanguage', langSmall);
+    _box.write('capitalLanguage', langCap);
+    _box.write('languageName', languageName);
   }
 
-  static List getLanguage() {
-    String small = GetStorage().read(smallLanguage) ?? 'en';
-    String capital = GetStorage().read(capitalLanguage) ?? 'EN';
-    String languages = GetStorage().read(language) ?? 'English';
-    return [small, capital, languages];
+  static List<String> getLanguage() {
+    String langSmall = _box.read('smallLanguage') ?? 'en';
+    String langCap = _box.read('capitalLanguage') ?? 'US';
+    return [langSmall, langCap];
   }
 
-  static Future<void> changeLanguage() async {
-    final box = GetStorage();
-    await box.remove(language);
-  }
+  // static Future<void> changeLanguage() async {
+  //   final box = GetStorage();
+  //   await box.remove(language);
+  // }
 
   static int getId() {
     return GetStorage().read(idKey);

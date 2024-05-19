@@ -32,20 +32,20 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^2.0.0
-  # flutter_launcher_icons: ^0.11.0
-#  flutter_app_name: ^0.1.0
-#  change_app_package_name: ^1.1.0
+  flutter_launcher_icons: ^0.11.0
+  # flutter_app_name: ^0.1.0
+  # change_app_package_name: ^1.1.0
   build_runner:
   flutter_gen_runner:
 #
 #
-#flutter_app_name:
-#  name: "chatme"
+# flutter_app_name:
+#  name: "Banco"
 #
-#flutter_icons:
-#  android: "launcher_icon"
-#  ios: true
-#  image_path: "assets/logo/app_launcher.png"
+flutter_icons:
+ android: "launcher_icon"
+ ios: true
+ image_path: "assets/logo/basic_logo.png"
 
 flutter_gen:
   output: lib/custom_assets/ # Optional (default: lib/gen/)

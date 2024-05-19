@@ -56,7 +56,7 @@ class SignInScreen extends StatelessWidget {
         spaceVer(Dimensions.heightSize),
         Text(
           textAlign: TextAlign.center,
-          AppString.signInWelcome,
+          AppString.signInWelcome.tr,
           style: CustomStyle.largestTextStyle,
         ),
         Text(AppString.welcomeSubTitle, style: CustomStyle.smallestTextStyle),
@@ -71,16 +71,16 @@ class SignInScreen extends StatelessWidget {
         spaceVer(Dimensions.heightSize * 3),
         CommonInputField(
           controller: TextEditingController(),
-          hintText: AppString.enterEmailAddress,
-          labelText: AppString.emailAddress,
+          hintText: AppString.enterEmailAddress.tr,
+          labelText: AppString.emailAddress.tr,
           borderColor: AppColor.borderColor,
           maxLines: 1,
         ),
         spaceVer(Dimensions.heightSize),
         CommonInputField(
           controller: TextEditingController(),
-          hintText: AppString.enterPassword,
-          labelText: AppString.password,
+          hintText: AppString.enterPassword.tr,
+          labelText: AppString.password.tr,
           borderColor: AppColor.borderColor,
           maxLines: 1,
         ),
@@ -92,7 +92,7 @@ class SignInScreen extends StatelessWidget {
           child: SizedBox(
             height: Dimensions.heightSize * 1.5,
             child: Text(
-              AppString.forgotPasswordQ,
+              AppString.forgotPasswordQ.tr,
               style: CustomStyle.smallTextStyle
                   .copyWith(color: AppColor.primaryColor),
             ),
@@ -109,7 +109,7 @@ class SignInScreen extends StatelessWidget {
         vertical: Dimensions.marginSizeVertical * 2,
       ),
       child: CommonButton(
-        title: AppString.signIn,
+        title: AppString.signIn.tr,
         onPressed: () {
           Get.toNamed(Routes.navigationScreen);
         },
@@ -122,11 +122,11 @@ class SignInScreen extends StatelessWidget {
   _doNotHaveAnAccount(BuildContext context) {
     return RichText(
       text: TextSpan(
-        text: AppString.doNotHaveAnAccount,
+        text: AppString.doNotHaveAnAccount.tr,
         style: CustomStyle.smallTextStyle,
         children: [
           TextSpan(
-            text: AppString.signUp,
+            text: AppString.signUp.tr,
             style: CustomStyle.smallTextStyle.copyWith(
               color: AppColor.primaryColor,
             ),
