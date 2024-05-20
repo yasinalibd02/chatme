@@ -15,8 +15,8 @@ class ResetPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MyAppBar(
-        title: AppString.resetPassword,
+      appBar:  MyAppBar(
+        title: AppString.resetPassword.tr,
       ),
       body: _allBody(context),
     );
@@ -29,7 +29,7 @@ class ResetPasswordScreen extends StatelessWidget {
         //>>> title
         spaceVer(Dimensions.heightSize * 3),
 
-         Text(AppString.resetYourPassword,
+         Text(AppString.resetYourPassword.tr,
         style: CustomStyle.mediumTextStyle.copyWith(
           fontSize: Dimensions.headingTextSize2,
           fontWeight: FontWeight.w500
@@ -42,19 +42,19 @@ class ResetPasswordScreen extends StatelessWidget {
         CommonInputField(
               isPassword: true,
             controller: controller.newPasswordController,
-            hintText: AppString.enterNewPassword,
-            labelText: AppString.newPassword),
+            hintText: AppString.enterNewPassword.tr,
+            labelText: AppString.newPassword.tr),
             spaceVer(Dimensions.heightSize),
               CommonInputField(
                     isPassword: true,
             controller: controller.confirmPasswordController,
-            hintText: AppString.enterConfirmPassword,
-            labelText: AppString.confirmPassword),
+            hintText: AppString.enterConfirmPassword.tr,
+            labelText: AppString.confirmPassword.tr),
         spaceVer(Dimensions.heightSize * 4),
 
         //>>>>>>. common button
         CommonButton(
-          title: AppString.reset,
+          title: AppString.reset.tr,
           onPressed: () {
          Get.toNamed(Routes.signInScreen);
           },

@@ -15,7 +15,9 @@ class ChangePasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MyAppBar(title: AppString.changeLanguage,),
+      appBar: MyAppBar(
+        title: AppString.changeLanguage.tr,
+      ),
       body: _body(context),
     );
   }
@@ -30,7 +32,6 @@ class ChangePasswordScreen extends StatelessWidget {
     );
   }
 
-
   _input(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
@@ -41,30 +42,28 @@ class ChangePasswordScreen extends StatelessWidget {
           //!>>>> old Password
           CommonInputField(
             controller: TextEditingController(),
-            hintText: AppString.enterOldPassword,
-            labelText: AppString.oldPassword,
+            hintText: AppString.enterOldPassword.tr,
+            labelText: AppString.oldPassword.tr,
             borderColor: AppColor.borderColor,
             maxLines: 1,
           ),
           spaceVer(Dimensions.heightSize),
-          //!>>>> new password 
+          //!>>>> new password
           CommonInputField(
             controller: TextEditingController(),
-            hintText: AppString.enterNewPassword,
-            labelText: AppString.newPassword,
+            hintText: AppString.enterNewPassword.tr,
+            labelText: AppString.newPassword.tr,
             borderColor: AppColor.borderColor,
             maxLines: 1,
           ),
           spaceVer(Dimensions.heightSize),
           CommonInputField(
             controller: TextEditingController(),
-            hintText: AppString.enterConfirmPassword,
-            labelText: AppString.confirmPassword,
+            hintText: AppString.enterConfirmPassword.tr,
+            labelText: AppString.confirmPassword.tr,
             borderColor: AppColor.borderColor,
             maxLines: 1,
           ),
-
-  
 
           spaceVer(Dimensions.heightSize),
         ],
@@ -78,7 +77,7 @@ class ChangePasswordScreen extends StatelessWidget {
           vertical: Dimensions.marginSizeVertical,
           horizontal: Dimensions.paddingSizeHorizontal * 0.8),
       child: CommonButton(
-        title: AppString.updatePassword,
+        title: AppString.updatePassword.tr,
         onPressed: () {
           Get.toNamed(Routes.navigationScreen);
         },
@@ -88,4 +87,3 @@ class ChangePasswordScreen extends StatelessWidget {
     );
   }
 }
-

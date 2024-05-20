@@ -1,3 +1,4 @@
+import 'package:chatme/constants/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:chatme/constants/app_colors.dart';
@@ -57,7 +58,7 @@ class _ChangeLanguageScreenState extends State<ChangeLanguageScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(
-        title: 'changeLanguage'.tr,
+        title: AppString.changeLanguage.tr,
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(
@@ -69,7 +70,7 @@ class _ChangeLanguageScreenState extends State<ChangeLanguageScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '${'changeLanguage'.tr} :',
+              '${AppString.changeLanguage.tr} :',
               style: CustomStyle.largeTextStyle,
             ),
             Column(

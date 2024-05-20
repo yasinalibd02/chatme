@@ -16,8 +16,8 @@ class ForgotPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MyAppBar(
-        title: AppString.forgotPassword,
+      appBar:  MyAppBar(
+        title: AppString.forgotPassword.tr,
       ),
       body: _allBody(context),
     );
@@ -31,7 +31,7 @@ class ForgotPasswordScreen extends StatelessWidget {
         spaceVer(Dimensions.heightSize * 3),
 
         Text(
-          AppString.pleaseProvideTheEmailAddress,
+          AppString.pleaseProvideTheEmailAddress.tr,
           style: CustomStyle.mediumTextStyle,
         ),
         spaceVer(Dimensions.heightSize * 1.4),
@@ -39,12 +39,12 @@ class ForgotPasswordScreen extends StatelessWidget {
         //>>>>>>>>>> common input filed
         CommonInputField(
           controller: controller.emailController,
-          hintText: AppString.enterEmailAddress,
-          labelText: AppString.emailAddress,
+          hintText: AppString.enterEmailAddress.tr,
+          labelText: AppString.emailAddress.tr,
         ),
         spaceVer(Dimensions.heightSize * 4),
         CommonButton(
-          title: AppString.submit,
+          title: AppString.submit.tr,
           onPressed: () {
             Get.toNamed(Routes.forgotOtpScreen);
           },

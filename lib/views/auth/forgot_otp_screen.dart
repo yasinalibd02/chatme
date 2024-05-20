@@ -16,8 +16,8 @@ class ForgotOtpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MyAppBar(
-        title: AppString.otpScreen,
+      appBar:  MyAppBar(
+        title: AppString.otpScreen.tr,
       ),
       body: _allBody(context),
     );
@@ -31,7 +31,7 @@ class ForgotOtpScreen extends StatelessWidget {
         spaceVer(Dimensions.heightSize * 3),
 
           Text(
-          AppString.pleaseEnterTheOpt,
+          AppString.pleaseEnterTheOpt.tr,
           style: CustomStyle.mediumTextStyle,
         ),
         spaceVer(Dimensions.heightSize),
@@ -62,7 +62,7 @@ class ForgotOtpScreen extends StatelessWidget {
       
         spaceVer(Dimensions.heightSize * 4),
         CommonButton(
-          title: AppString.submit,
+          title: AppString.submit.tr,
           onPressed: () {
           Get.toNamed(Routes.resetPasswordScreen);
           },

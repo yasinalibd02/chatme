@@ -1,12 +1,16 @@
 import 'package:chatme/widget/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../constants/app_assets.dart';
 import '../../constants/app_colors.dart';
 import '../../constants/app_sized.dart';
 import '../../constants/app_strings.dart';
 import '../../getx/navbar/profile_controller.dart';
 import '../../widget/input_filed.dart';
+import '../../widget/others/image_picker.dart';
+import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+
+import '../../widget/others/picker_sheet.dart';
 
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({super.key});
@@ -28,10 +32,15 @@ class ProfileScreen extends StatelessWidget {
   }
 
   _logoWidget(BuildContext context) {
-    return Image.asset(
-      AppAssets.logo,
-      color: AppColor.primaryColor,
-      height: MediaQuery.sizeOf(context).height * 0.2,
+    return Obx(
+      () => ImagePickerWidget(
+        isImagePathSet: controller.isImagePathSet.value,
+        imagePath: controller.userImagePath.value,
+        imageUrl: "",
+        onImagePick: () {
+          _showImagePickerBottomSheet(context);
+        },
+      ),
     );
   }
 
@@ -45,8 +54,8 @@ class ProfileScreen extends StatelessWidget {
           //!>>>> country
           CommonInputField(
             controller: TextEditingController(),
-            hintText: AppString.enterCountry,
-            labelText: AppString.country,
+            hintText: AppString.enterCountry.tr,
+            labelText: AppString.country.tr,
             borderColor: AppColor.borderColor,
             maxLines: 1,
           ),
@@ -54,16 +63,16 @@ class ProfileScreen extends StatelessWidget {
           //!>>>> mobile number
           CommonInputField(
             controller: TextEditingController(),
-            hintText: AppString.enterMobileNumber,
-            labelText: AppString.mobileNumber,
+            hintText: AppString.enterMobileNumber.tr,
+            labelText: AppString.mobileNumber.tr,
             borderColor: AppColor.borderColor,
             maxLines: 1,
           ),
           spaceVer(Dimensions.heightSize),
           CommonInputField(
             controller: TextEditingController(),
-            hintText: AppString.enterEmailAddress,
-            labelText: AppString.emailAddress,
+            hintText: AppString.enterEmailAddress.tr,
+            labelText: AppString.emailAddress.tr,
             borderColor: AppColor.borderColor,
             maxLines: 1,
           ),
@@ -72,8 +81,8 @@ class ProfileScreen extends StatelessWidget {
 
           CommonInputField(
             controller: TextEditingController(),
-            hintText: AppString.enterAddress,
-            labelText: AppString.address,
+            hintText: AppString.enterAddress.tr,
+            labelText: AppString.address.tr,
             borderColor: AppColor.borderColor,
             maxLines: 2,
           ),
@@ -86,16 +95,38 @@ class ProfileScreen extends StatelessWidget {
   _commonButton(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(
-        vertical: Dimensions.marginSizeVertical,
-        horizontal: Dimensions.paddingSizeHorizontal*0.8
-      ),
+          vertical: Dimensions.marginSizeVertical,
+          horizontal: Dimensions.paddingSizeHorizontal * 0.8),
       child: CommonButton(
-        title: AppString.update,
+        title: AppString.update.tr,
         onPressed: () {
           // Get.toNamed(Routes.navigationScreen);
         },
         borderColor: AppColor.primaryColor,
         buttonColor: AppColor.primaryColor,
-      ),   );
+      ),
+    );
+  }
+
+  _showImagePickerBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      context: context,
+      builder: (BuildContext context) {
+        return SizedBox(
+          width: double.infinity,
+          child: ImagePickerSheet(
+            fromCamera: () {
+              Get.back();
+              controller.chooseImageFromCamera();
+            },
+            fromGallery: () {
+              Get.back();
+              controller.chooseImageFromGallery();
+            },
+          ),
+        );
+      },
+    );
   }
 }

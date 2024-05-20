@@ -69,12 +69,12 @@ class NavigationScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              bottomItemWidget(context, Icons.home, AppString.home, 0),
+              bottomItemWidget(context, Icons.home, AppString.home.tr, 0),
               bottomItemWidget(
-                  context, Icons.category, AppString.categories, 1),
-              bottomItemWidget(context,Icons.notifications,AppString.notification, 2),
+                  context, Icons.category, AppString.categories.tr, 1),
+              bottomItemWidget(context,Icons.notifications,AppString.notification.tr, 2),
               bottomItemWidget(
-                  context, Icons.person, AppString.profile, 3),
+                  context, Icons.person, AppString.profile.tr, 3),
             ],
           ),
 
@@ -211,11 +211,11 @@ class NavigationScreen extends StatelessWidget {
   _titleWidget(index) {
     switch (index) {
       case 1:
-        return AppString.categories;
+        return AppString.categories.tr;
       case 2:
-        return AppString.notification;
+        return AppString.notification.tr;
       case 3:
-        return AppString.profile;
+        return AppString.profile.tr;
     }
   }
 
@@ -285,8 +285,8 @@ class NavigationScreen extends StatelessWidget {
                           child: const Icon(Icons.back_hand),
                         ),
                         spaceHor(Dimensions.widthSize),
-                         const Text(
-                           AppString.filters,
+                          Text(
+                           AppString.filters.tr,
                         ),
                       ],
                     ),
@@ -295,7 +295,7 @@ class NavigationScreen extends StatelessWidget {
                         // marketplaceController.onResetFilterValue();
                       },
                       child:Text(
-                        AppString.reset,
+                        AppString.reset.tr,
                    style: CustomStyle.smallestTextStyle,
                       ),
                     ),

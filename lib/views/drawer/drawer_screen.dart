@@ -96,6 +96,14 @@ class DrawerScreen extends StatelessWidget {
             Get.toNamed(Routes.changeLanguageScreen);
           },
         ),
+         buildMenuItem(
+          context,
+          title: AppString.history.tr,
+          imagePath: Icons.history,
+          onTap: () {
+            Get.toNamed(Routes.historyScreen);
+          },
+        ),
         buildMenuItem(
           context,
           title: AppString.aboutUs.tr,
@@ -131,7 +139,7 @@ class DrawerScreen extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(
             horizontal: Dimensions.paddingSize * 0.7,
-            vertical: Dimensions.paddingSize * 0.1,
+            vertical: Dimensions.paddingSize * 0.12,
           ),
           child: InkWell(
             onTap: onTap,
@@ -148,7 +156,7 @@ class DrawerScreen extends StatelessWidget {
                     icon: Icon(
                       imagePath,
                       color: AppColor.primaryColor,
-                      size: Dimensions.radius * 1.8,
+                      size: Dimensions.radius * 2.2,
                     ),
                   ),
                 ),
@@ -156,7 +164,7 @@ class DrawerScreen extends StatelessWidget {
                 Text(
                   title,
                   style: CustomStyle.mediumTextStyle.copyWith(
-                    fontSize: Dimensions.headingTextSize3,
+                    fontSize: Dimensions.headingTextSize2-1,
                   ),
                 ).paddingOnly(
                   top: 8,

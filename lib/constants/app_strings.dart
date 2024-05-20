@@ -76,5 +76,8 @@ class AppString {
   static const String products = "Products";
   static const String english= "English";
   static const String arabic = "Arabic";
+  static const String fromGallery = "From Gallery";
+  static const String fromCamera = "From Camera";
+  static const String history = "History";
 
 }

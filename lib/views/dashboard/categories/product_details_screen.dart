@@ -55,7 +55,7 @@ class ProductDetailsScreen extends StatelessWidget {
         vertical: Dimensions.marginSizeVertical * 2,
       ),
       child: CommonButton(
-        title: AppString.order,
+        title: AppString.order.tr,
         onPressed: () {
           Get.toNamed(Routes.navigationScreen);
         },

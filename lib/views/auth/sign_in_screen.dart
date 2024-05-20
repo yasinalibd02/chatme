@@ -57,10 +57,10 @@ class SignInScreen extends StatelessWidget {
         spaceVer(Dimensions.heightSize),
         Text(
           textAlign: TextAlign.center,
-          AppString.signInWelcome.tr,
+          AppString.signInWelcome.tr.tr,
           style: CustomStyle.largestTextStyle,
         ),
-        Text(AppString.welcomeSubTitle, style: CustomStyle.smallestTextStyle),
+        Text(AppString.welcomeSubTitle.tr, style: CustomStyle.smallestTextStyle),
       ],
     );
   }

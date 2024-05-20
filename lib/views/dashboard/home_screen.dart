@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
           vertical: Dimensions.paddingSizeVertical * 0.7),
       child: SearchInputField(
         controller: TextEditingController(),
-        hintText: AppString.searchHere,
+        hintText: AppString.searchHere.tr,
       ),
     );
   }
@@ -57,7 +57,7 @@ class HomeScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(
               horizontal: Dimensions.paddingSizeHorizontal),
           child: Text(
-            AppString.categorie,
+            AppString.categorie.tr,
             style: CustomStyle.mediumTextStyle
                 .copyWith(fontSize: Dimensions.headingTextSize3 + 2),
           ),
@@ -132,7 +132,7 @@ class HomeScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(
               horizontal: Dimensions.paddingSizeHorizontal),
           child: Text(
-            AppString.products,
+            AppString.products.tr,
             style: CustomStyle.mediumTextStyle
                 .copyWith(fontSize: Dimensions.headingTextSize3 + 2),
           ),
@@ -228,7 +228,7 @@ class HomeScreen extends StatelessWidget {
         padding:
             EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeHorizontal),
         child: Text(
-          AppString.popular,
+          AppString.popular.tr,
           style: CustomStyle.mediumTextStyle
               .copyWith(fontSize: Dimensions.headingTextSize3 + 2),
         ),

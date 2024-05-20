@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
         darkTheme: Themes.dark,
         themeMode: Themes().theme,
         navigatorKey: Get.key,
-        initialRoute: Routes.navigationScreen,
+        initialRoute: Routes.splashScreen,
         getPages: Routes.list,
         builder: (context, widget) {
           return MediaQuery(

@@ -14,6 +14,7 @@ import '../views/begins/welcome_screen.dart';
 import '../views/dashboard/navigation_screen.dart';
 import '../views/drawer/change_language_screen.dart';
 import '../views/drawer/change_password_screen.dart';
+import '../views/drawer/history_screen.dart';
 
 class Routes {
   static const String splashScreen = '/splashScreen';
@@ -30,6 +31,7 @@ class Routes {
   static const String filterCategoriesScreen = '/filterCategoriesScreen';
   static const String productScreen = '/productScreen';
   static const String orderScreen = '/orderScreen';
+  static const String historyScreen = '/historyScreen';
 
   static var list = [
     GetPage(
@@ -79,10 +81,10 @@ class Routes {
       name: Routes.changePasswordScreen,
       page: () => const ChangePasswordScreen(),
     ),
-    //   GetPage(
-    //   name: Routes.productsScreen,
-    //   page: () =>  ProductsScreen(),
-    // ),
+      GetPage(
+      name: Routes.historyScreen,
+      page: () =>  HistoryScreen(),
+    ),
     //   GetPage(
     //   name: Routes.productScreen,
     //   page: () => const ProductScreen(),

@@ -101,6 +101,7 @@ class SignUpScreen extends StatelessWidget {
         spaceVer(Dimensions.heightSize),
         CommonInputField(
           controller: TextEditingController(),
+          isPassword: true,
           hintText: AppString.enterPassword.tr,
           labelText: AppString.password.tr,
           borderColor: AppColor.borderColor,
@@ -132,11 +133,11 @@ class SignUpScreen extends StatelessWidget {
       alignment: Alignment.center,
       child: RichText(
         text: TextSpan(
-          text: AppString.alreadyHaveAn,
+          text: AppString.alreadyHaveAn.tr,
           style: CustomStyle.smallTextStyle,
           children: [
             TextSpan(
-              text: AppString.signIn,
+              text: AppString.signIn.tr,
               style: CustomStyle.smallTextStyle.copyWith(
                 color: AppColor.primaryColor,
               ),
