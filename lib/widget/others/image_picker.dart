@@ -1,9 +1,7 @@
 import 'dart:io';
-import 'package:chatme/constants/app_assets.dart';
 import 'package:chatme/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import '../../constants/app_sized.dart';
 
 

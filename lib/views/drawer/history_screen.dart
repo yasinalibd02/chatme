@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../constants/app_colors.dart';
 import '../../constants/app_sized.dart';
 import '../../constants/app_strings.dart';
-import '../../constants/routes.dart';
-import '../../widget/custom_button.dart';
 import '../../widget/drawer/history_widget.dart';
-import '../../widget/input_filed.dart';
 import '../../widget/others/my_app_bar_widget.dart';
 
 class HistoryScreen extends StatelessWidget {

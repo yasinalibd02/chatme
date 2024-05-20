@@ -7,9 +7,6 @@ import '../../constants/app_strings.dart';
 import '../../getx/navbar/profile_controller.dart';
 import '../../widget/input_filed.dart';
 import '../../widget/others/image_picker.dart';
-import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-
 import '../../widget/others/picker_sheet.dart';
 
 class ProfileScreen extends StatelessWidget {
