@@ -1,7 +1,6 @@
-
-
 import 'dart:ui';
 
+import 'package:chatme/constants/routes.dart';
 import 'package:chatme/constants/style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,10 +13,9 @@ import '../../getx/navbar/navigation_controller.dart';
 import '../drawer/drawer_screen.dart';
 
 class NavigationScreen extends StatelessWidget {
-  NavigationScreen({
-    Key? key }) : super(key: key);
+  NavigationScreen({Key? key}) : super(key: key);
 
-  final  controller =Get.put(NavigationController());
+  final controller = Get.put(NavigationController());
   final GlobalKey<ScaffoldState> _key = GlobalKey();
 
   @override
@@ -72,18 +70,14 @@ class NavigationScreen extends StatelessWidget {
               bottomItemWidget(context, Icons.home, AppString.home.tr, 0),
               bottomItemWidget(
                   context, Icons.category, AppString.categories.tr, 1),
-              bottomItemWidget(context,Icons.notifications,AppString.notification.tr, 2),
               bottomItemWidget(
-                  context, Icons.person, AppString.profile.tr, 3),
+                  context, Icons.notifications, AppString.notification.tr, 2),
+              bottomItemWidget(context, Icons.person, AppString.profile.tr, 3),
             ],
           ),
-
         ),
-
       ),
-
     );
-    
   }
 
   bottomItemWidget(context, var icon, label, page) {
@@ -160,34 +154,40 @@ class NavigationScreen extends StatelessWidget {
           _key.currentState!.openDrawer(); // <-- Opens drawer
         },
         child: Padding(
-          padding: EdgeInsets.only(
-            left: Dimensions.marginSizeHorizontal,
-            right: Dimensions.marginSizeHorizontal * 0.2,
-          ),
-          child: Icon(Icons.menu,size: 25.h,
-          color: AppColor.blackColor,
-          )
-        ),
+            padding: EdgeInsets.only(
+              left: Dimensions.marginSizeHorizontal,
+              right: Dimensions.marginSizeHorizontal * 0.2,
+            ),
+            child: Icon(
+              Icons.menu,
+              size: 25.h,
+              color: AppColor.blackColor,
+            )),
       ),
-      title:Image.asset(
-      AppAssets.logo,
-      color: AppColor.primaryColor,
-      height: 80,
-      width: 100,
-  
-    ),
+      title: Image.asset(
+        AppAssets.logo,
+        color: AppColor.primaryColor,
+        height: 80,
+        width: 100,
+      ),
       centerTitle: true,
-      // actions: [
-      //   GestureDetector(
-      //     onTap: () {
-      //       // controller.onProfile;
-      //     },
-      //     child: Padding(
-      //       padding: EdgeInsets.only(right: Dimensions.marginSizeHorizontal),
-      //       child: const Text("profile images")
-      //     ),
-      //   ),
-      // ],
+      actions: [
+        GestureDetector(
+          onTap: () {
+            Get.toNamed(Routes.cartScreen);
+          },
+          child: Padding(
+              padding: EdgeInsets.only(
+                right: Dimensions.marginSizeHorizontal * 0.7,
+                left: Dimensions.marginSizeHorizontal * 0.7,
+              ),
+              child: Icon(
+                Icons.shopping_basket,
+                size: 25.h,
+                color: AppColor.blackColor,
+              )),
+        ),
+      ],
     );
   }
 
@@ -198,9 +198,9 @@ class NavigationScreen extends StatelessWidget {
       scrolledUnderElevation: 0,
       automaticallyImplyLeading: false,
       title: Text(
-          _titleWidget(controller.selectedIndex.value),
-          style: CustomStyle.largeTextStyle,
-          ),
+        _titleWidget(controller.selectedIndex.value),
+        style: CustomStyle.largeTextStyle,
+      ),
       centerTitle: true,
       actions: [
         _filterProcessWidget(context),
@@ -240,9 +240,7 @@ class NavigationScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(Dimensions.radius * 0.5),
             ),
           ),
-          child: const Icon(
-           Icons.menu
-          ),
+          child: const Icon(Icons.menu),
         ),
       ),
     );
@@ -273,7 +271,7 @@ class NavigationScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
-                  mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
                       children: [
@@ -285,8 +283,8 @@ class NavigationScreen extends StatelessWidget {
                           child: const Icon(Icons.back_hand),
                         ),
                         spaceHor(Dimensions.widthSize),
-                          Text(
-                           AppString.filters.tr,
+                        Text(
+                          AppString.filters.tr,
                         ),
                       ],
                     ),
@@ -294,9 +292,9 @@ class NavigationScreen extends StatelessWidget {
                       onTap: () {
                         // marketplaceController.onResetFilterValue();
                       },
-                      child:Text(
+                      child: Text(
                         AppString.reset.tr,
-                   style: CustomStyle.smallestTextStyle,
+                        style: CustomStyle.smallestTextStyle,
                       ),
                     ),
                   ],
@@ -338,7 +336,7 @@ class NavigationScreen extends StatelessWidget {
                 //     ),
                 //   ),
                 // ),
-            
+
                 // Obx(
                 //   () => Text(
                 //     text: marketplaceController.amount.value.toStringAsFixed(2),
@@ -353,7 +351,6 @@ class NavigationScreen extends StatelessWidget {
                 //   fontWeight: FontWeight.w500,
                 //   opacity: 0.30,
                 // ),
- 
               ],
             ),
           ),

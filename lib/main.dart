@@ -1,3 +1,4 @@
+import 'package:chatme/getx/navbar/navigation_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,6 +15,7 @@ void main() async {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
+  // Get.put(NavigationController());
 
   await GetStorage.init();
 
@@ -27,7 +29,6 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   final Locale initialLocale;
-
   const MyApp({Key? key, required this.initialLocale}) : super(key: key);
 
   @override
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
         darkTheme: Themes.dark,
         themeMode: Themes().theme,
         navigatorKey: Get.key,
-        initialRoute: Routes.splashScreen,
+        initialRoute: Routes.navigationScreen,
         getPages: Routes.list,
         builder: (context, widget) {
           return MediaQuery(

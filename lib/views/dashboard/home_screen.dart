@@ -1,4 +1,6 @@
+import 'package:chatme/getx/navbar/navigation_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:chatme/constants/app_colors.dart';
@@ -8,12 +10,14 @@ import 'package:chatme/constants/app_sized.dart'; // Assuming this contains Dime
 import 'package:chatme/constants/app_strings.dart';
 import 'package:chatme/widget/others/counter_widget.dart';
 import '../../backend/data/icons.dart';
+import '../../widget/others/filte_widget.dart';
 import '../../widget/search_bar.dart';
 import 'categories/product_details_screen.dart';
 import 'categories/products_screen.dart'; // Adjust the import path accordingly
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+  // final NavigationController controller = Get.find<NavigationController>();
 
   @override
   Widget build(BuildContext context) {
@@ -37,16 +41,39 @@ class HomeScreen extends StatelessWidget {
   _searchBarWidget(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-          horizontal: Dimensions.paddingSizeHorizontal,
-          vertical: Dimensions.paddingSizeVertical * 0.7),
-      child: SearchInputField(
-        controller: TextEditingController(),
-        hintText: AppString.searchHere.tr,
+        horizontal: Dimensions.paddingSizeHorizontal,
+        vertical: Dimensions.paddingSizeVertical * 0.7,
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: SearchInputField(
+              controller: TextEditingController(),
+              hintText: AppString.searchHere.tr,
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+
+            ),
+            child: IconButton(
+              icon: Icon(Icons.filter_list,
+            size: 30.r,
+              color: AppColor.blackColor,
+              ),
+              onPressed: () {
+                showFilterDialog(context);
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
 
   _categoriesWidget(BuildContext context) {
+
+  final NavigationController controller = Get.find<NavigationController>();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -56,10 +83,28 @@ class HomeScreen extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(
               horizontal: Dimensions.paddingSizeHorizontal),
-          child: Text(
-            AppString.categorie.tr,
-            style: CustomStyle.mediumTextStyle
-                .copyWith(fontSize: Dimensions.headingTextSize3 + 2),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                AppString.categorie.tr,
+                style: CustomStyle.mediumTextStyle
+                    .copyWith(fontSize: Dimensions.headingTextSize3 + 2),
+              ),
+              InkWell(
+                onTap: () {
+                           controller.selectedPage(1); // Navigate to CategoriesScreen
+
+                  // Get.toNamed(controller.selectedIndex.);
+                },
+                child: Text(
+                  AppString.viewAll.tr,
+                  style: CustomStyle.smallTextStyle.copyWith(
+                      fontSize: Dimensions.headingTextSize4,
+                      color: AppColor.primaryColor),
+                ),
+              ),
+            ],
           ),
         ),
         // Constrained ListView.builder
@@ -139,7 +184,6 @@ class HomeScreen extends StatelessWidget {
         ),
         SizedBox(
           height: 190.h,
-         
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             padding: EdgeInsets.symmetric(
@@ -206,7 +250,7 @@ class HomeScreen extends StatelessWidget {
                               ],
                             ),
                             spaceVer(Dimensions.heightSize * 0.4),
-                            const ProductCounter()
+                            ProductCounter(products: products[index]),
                           ],
                         ),
                       ),
@@ -245,42 +289,43 @@ class HomeScreen extends StatelessWidget {
           itemCount: products.length,
           itemBuilder: (context, index) {
             return GestureDetector(
-                onTap: () {
-                  Get.to(ProductDetailsScreen(product: products[index]));
-                },
-                child: Container(
-                  margin: EdgeInsets.only(
-                    bottom: Dimensions.paddingSize * 0.2,
-                    left: Dimensions.paddingSize * 0.5,
-                    right: Dimensions.paddingSize * 0.5,
+              onTap: () {
+                Get.to(ProductDetailsScreen(product: products[index]));
+              },
+              child: Container(
+                margin: EdgeInsets.only(
+                  bottom: Dimensions.paddingSize * 0.2,
+                  left: Dimensions.paddingSize * 0.5,
+                  right: Dimensions.paddingSize * 0.5,
+                ),
+                decoration: BoxDecoration(
+                    color: AppColor.primaryColor.withOpacity(0.2),
+                    borderRadius:
+                        BorderRadius.circular(Dimensions.radius * 0.8)),
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundColor: AppColor.primaryColor.withOpacity(0.3),
+                    backgroundImage: AssetImage(
+                      products[index].imageUrl,
+                    ),
+                    foregroundColor: AppColor.primaryColor.withOpacity(0.3),
                   ),
-                  decoration: BoxDecoration(
-                      color: AppColor.primaryColor.withOpacity(0.2),
-                      borderRadius:
-                          BorderRadius.circular(Dimensions.radius * 0.8)),
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      backgroundColor: AppColor.primaryColor.withOpacity(0.3),
-                      backgroundImage: AssetImage(
-                        products[index].imageUrl,
-                      ),
-                      foregroundColor: AppColor.primaryColor.withOpacity(0.3),
-                    ),
-                    title: Text(
-                      products[index].name,
-                      style: CustomStyle.mediumTextStyle,
-                    ),
-                    subtitle: Text(
-                      'Price: \$${products[index].price.toString()}',
-                      style: CustomStyle.smallestTextStyle
-                          .copyWith(color: AppColor.categoryShadow),
-                    ),
-                    trailing: const ProductCounter(),
-                    onTap: () {
-                      Get.to(ProductDetailsScreen(product: products[index]));
-                    },
+                  title: Text(
+                    products[index].name,
+                    style: CustomStyle.mediumTextStyle,
                   ),
-                ),);
+                  subtitle: Text(
+                    'Price: \$${products[index].price.toString()}',
+                    style: CustomStyle.smallestTextStyle
+                        .copyWith(color: AppColor.categoryShadow),
+                  ),
+                  trailing: ProductCounter(products: products[index]),
+                  onTap: () {
+                    Get.to(ProductDetailsScreen(product: products[index]));
+                  },
+                ),
+              ),
+            );
           },
         ),
       )

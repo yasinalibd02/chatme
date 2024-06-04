@@ -88,6 +88,7 @@ class MyTranslations extends Translations {
           AppString.fromCamera: "From Camera",
           AppString.fromGallery: "From Gallery",
           AppString.history: "History",
+          AppString.addToCart: "Add To Cart",
         },
 
         'ar_SA': {
@@ -170,7 +171,8 @@ class MyTranslations extends Translations {
           AppString.arabic: "عربي",
           AppString.fromCamera: "من الكاميرا",
           AppString.fromGallery: "من المعرض",
-           AppString.history: "تاريخ"
+           AppString.history: "تاريخ",
+           AppString.addToCart: "أضف إلى السلة"
         },
       };
 }

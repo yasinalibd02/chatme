@@ -7,6 +7,7 @@ import '../../../backend/models/categores_model.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_strings.dart';
 import '../../../constants/routes.dart';
+import '../../../getx/navbar/add_to_card_controller.dart';
 import '../../../widget/custom_button.dart';
 import '../../../widget/others/my_app_bar_widget.dart';
 
@@ -49,7 +50,21 @@ class ProductDetailsScreen extends StatelessWidget {
              
                 style: CustomStyle.smallestTextStyle),
             spaceVer(Dimensions.heightSize*2.5),
-
+            // Obx(() {
+            //   final cartController = Get.find<CartController>();
+            //   bool isInCart = cartController.cartItems.contains(product);
+            //   return ElevatedButton(
+            //     onPressed: () {
+            //       if (isInCart) {
+            //         cartController.removeFromCart(product);
+            //       } else {
+            //         cartController.addToCart(product);
+            //       }
+            //     },
+            //     child: Text(isInCart
+            //         ? "remove_from_cart"
+            //         : 'add_to_cart')              );
+            // }),
             Container(
       margin: EdgeInsets.symmetric(
         vertical: Dimensions.marginSizeVertical * 2,

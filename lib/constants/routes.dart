@@ -11,6 +11,7 @@ import '../views/begins/splash_screen.dart';
 import '../views/begins/welcome_screen.dart';
 // import '../views/dashboard/categories/products_screen.dart';
 // import '../views/dashboard/categories/order_screen.dart';
+import '../views/dashboard/cart_screen.dart';
 import '../views/dashboard/navigation_screen.dart';
 import '../views/drawer/change_language_screen.dart';
 import '../views/drawer/change_password_screen.dart';
@@ -29,7 +30,7 @@ class Routes {
   static const String changeLanguageScreen = '/changeLanguageScreen';
   static const String changePasswordScreen = '/changePasswordScreen';
   static const String filterCategoriesScreen = '/filterCategoriesScreen';
-  static const String productScreen = '/productScreen';
+  static const String cartScreen = '/cartScreen';
   static const String orderScreen = '/orderScreen';
   static const String historyScreen = '/historyScreen';
 
@@ -85,10 +86,10 @@ class Routes {
       name: Routes.historyScreen,
       page: () =>  HistoryScreen(),
     ),
-    //   GetPage(
-    //   name: Routes.productScreen,
-    //   page: () => const ProductScreen(),
-    // ),
+      GetPage(
+      name: Routes.cartScreen,
+      page: () =>  CartScreen(),
+    ),
     //   GetPage(
     //   name: Routes.orderScreen,
     //   page: () => const OrderScreen(),

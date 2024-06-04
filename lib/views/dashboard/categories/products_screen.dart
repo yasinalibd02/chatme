@@ -1,3 +1,4 @@
+import 'package:chatme/backend/data/categories_data.dart';
 import 'package:chatme/constants/app_colors.dart';
 import 'package:chatme/constants/app_sized.dart';
 import 'package:chatme/constants/style.dart';
@@ -59,7 +60,7 @@ vertical: Dimensions.paddingSize*0.4
                 color: AppColor.categoryShadow
               ),
               ),
-              trailing: const ProductCounter(),
+              trailing:  ProductCounter(products: products[index]),
               onTap: () {
                 Get.to(ProductDetailsScreen(product: products[index]));
               },

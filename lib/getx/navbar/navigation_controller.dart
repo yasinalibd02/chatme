@@ -8,7 +8,7 @@ class NavigationController extends GetxController {
   final RxInt selectedIndex = 0.obs;
 
   final List page = [ 
-    const HomeScreen(),
+     HomeScreen(),
     const CategoriesScreen(),
     const NotificationScreen(),
      ProfileScreen(),
@@ -17,7 +17,5 @@ class NavigationController extends GetxController {
   void selectedPage(int index) {
     selectedIndex.value = index;
   }
-  // get onTransaction => Routes.transactionScreen.toNamed;
-  // get onChangePassword => Routes.changePasswordScreen.toNamed;
-  // get onTwoFaVerification => Routes.twoFaVerificationScreen.toNamed;
+
 }

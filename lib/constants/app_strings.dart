@@ -24,15 +24,17 @@ class AppString {
   static const String enterFirstName = "Enter First Name";
   static const String lastName = "Last Name";
   static const String enterLastName = "Enter Last Name";
-  static const String pleaseProvideTheEmailAddress = "Please provide the email address you used to create the account";
+  static const String pleaseProvideTheEmailAddress =
+      "Please provide the email address you used to create the account";
   static const String submit = "Submit";
-  static const String pleaseEnterTheOpt = "Please enter the OTP that was sent to your email";
-    static const String enterTheOtp = "Enter The OTP";
-   static const String otpScreen = "OTP Screen";
-   static const String resetPassword = "Reset Password";
-   static const String resetYourPassword = "Please reset your password";
-   static const String ok = "Ok";
-   static const String reset = "Reset";
+  static const String pleaseEnterTheOpt =
+      "Please enter the OTP that was sent to your email";
+  static const String enterTheOtp = "Enter The OTP";
+  static const String otpScreen = "OTP Screen";
+  static const String resetPassword = "Reset Password";
+  static const String resetYourPassword = "Please reset your password";
+  static const String ok = "Ok";
+  static const String reset = "Reset";
   static const String foodAndGroceries = "Food and Groceries";
   static const String medicine = "Medicine";
   static const String healthAndBeauty = "Health and Beauty: ";
@@ -46,17 +48,17 @@ class AppString {
   static const String changePassword = "Change Password";
   static const String changeLanguage = "Change Language";
   static const String aboutUs = "About Us";
-  static const String privacyPolicy    = "Privacy Policy";
-  static const String home    = "Home";
-  static const String categories    = "Categories";
-  static const String profile    = "Profile";
-  static const String notification    = "Notification";
+  static const String privacyPolicy = "Privacy Policy";
+  static const String home = "Home";
+  static const String categories = "Categories";
+  static const String profile = "Profile";
+  static const String notification = "Notification";
   static const String signOut = "Sign Out";
   static const String filters = "Filters";
   static const String searchHere = "Search Here";
-  static const String product  = "Product";
-  static const String categorie  = "Categorie";
-  static const String popular  = "Popular";
+  static const String product = "Product";
+  static const String categorie = "Categorie";
+  static const String popular = "Popular";
   static const String mobileNumber = "Mobile Number";
   static const String enterMobileNumber = "Enter Mobile Number";
   static const String address = "Address";
@@ -65,19 +67,26 @@ class AppString {
   static const String enterCountry = "Enter Country";
   static const String update = "Update";
   static const String oldPassword = "Old Password";
-  static const String enterOldPassword= "Enter Old Password";
-  static const String newPassword= "New Password";
-  static const String enterNewPassword= "Enter New Password";
-  static const String confirmPassword= "Confirm Password";
-  static const String enterConfirmPassword= "Enter Confirm Password";
-  static const String updatePassword= "Update Password";
-  static const String updateLanguage= "Update Language";
+  static const String enterOldPassword = "Enter Old Password";
+  static const String newPassword = "New Password";
+  static const String enterNewPassword = "Enter New Password";
+  static const String confirmPassword = "Confirm Password";
+  static const String enterConfirmPassword = "Enter Confirm Password";
+  static const String updatePassword = "Update Password";
+  static const String updateLanguage = "Update Language";
   static const String order = "Order";
   static const String products = "Products";
-  static const String english= "English";
+  static const String english = "English";
   static const String arabic = "Arabic";
   static const String fromGallery = "From Gallery";
   static const String fromCamera = "From Camera";
   static const String history = "History";
-
+  //
+  static const String addToCart = "Add to cart";
+  //!>>>>>
+  static const String viewAll = "View All";
+  static const String filterOptions = "Filter Options";
+  static const String selectCategory = "Select Category";
+  // static const String filterOptions = "FilterOptions";
+  // static const String filterOptions = "FilterOption";
 }
